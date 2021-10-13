@@ -5,7 +5,7 @@ Cookbook (name pending) is a social media web application which will allow food 
 
 
 ## MVPs 
-### User Stories 
+### Users 
 There are 3 different kinds of users who would be using Cookbook.
   - Standard Members
   - Professional Members
