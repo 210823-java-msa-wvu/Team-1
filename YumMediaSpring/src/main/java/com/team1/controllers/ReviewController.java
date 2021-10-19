@@ -2,8 +2,8 @@ package com.team1.controllers;
 
 
 
-import com.team1.models.Review;
-import com.team1.repositories.ReviewRepository;
+import com.team1.models.Reviews;
+import com.team1.repositories.ReviewsRepo;
 import com.team1.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,20 +15,20 @@ import java.util.List;
 @RequestMapping(path="/reviews")
 public class ReviewController {
 
-    private ReviewRepository reviewRepository;
+    private ReviewsRepo reviewRepository;
 
     @Autowired
     private ReviewService reviewService;
 
     //get all
     @GetMapping
-    public List<Review> getAllReview(){
+    public List<Reviews> getAllReview(){
         return reviewRepository.findAll();
     }
 
     //by id
     @GetMapping
-    public Review getById(@PathVariable("review_id") Integer id){
+    public Reviews getById(@PathVariable("review_id") Integer id){
         return reviewRepository.getById(id);
     }
 
@@ -36,13 +36,13 @@ public class ReviewController {
 
 //    @PostMapping("/reviews/new")
         @PostMapping(consumes = "application/json", produces = "application/json")
-        public Review addReview(@RequestBody Review review){
+        public Reviews addReview(@RequestBody Reviews review){
             return reviewRepository.save(review);
     }
 
     //update
     @PutMapping(path="/{review_id")
-    public void updateReview(@PathVariable("review_id") Integer id, @RequestBody Review review){
+    public void updateReview(@PathVariable("review_id") Integer id, @RequestBody Reviews review){
         if(id == review.getReview_id()){
             reviewRepository.save(review);
         }

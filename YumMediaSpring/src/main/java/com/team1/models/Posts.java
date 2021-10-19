@@ -3,8 +3,8 @@ package com.team1.models;
 import javax.persistence.*;
 
 @Entity
-@Table
-public class posts {
+@Table(name="posts")
+public class Posts {
 
     //Instance Variables
     @Id
@@ -32,10 +32,10 @@ public class posts {
     //Constructors
 
     //empty constructor
-    public posts() {}
+    public Posts() {}
 
     //All post attributes constructor
-    public posts(Integer post_id, Integer user_id, String description, String ingredients, String img_url, Integer likes, Boolean flag) {
+    public Posts(Integer post_id, Integer user_id, String description, String ingredients, String img_url, Integer likes, Boolean flag) {
         this.post_id = post_id;
         this.user_id = user_id;
         this.description = description;
@@ -45,19 +45,19 @@ public class posts {
         this.flag = flag;
     }
     //Like a post constructor
-    public posts(Integer post_id, Integer likes) {
+    public Posts(Integer post_id, Integer likes) {
         this.post_id = post_id;
         this.likes = likes;
     }
 
     //flag a post constructor
-    public posts(Integer post_id, Integer user_id, Boolean flag) {
+    public Posts(Integer post_id, Integer user_id, Boolean flag) {
         this.post_id = post_id;
         this.user_id = user_id;
         this.flag = flag;
     }
     //Describe a post constructor
-    public posts(Integer post_id, Integer user_id, String description) {
+    public Posts(Integer post_id, Integer user_id, String description) {
         this.post_id = post_id;
         this.user_id = user_id;
         this.description = description;

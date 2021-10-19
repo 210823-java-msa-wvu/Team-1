@@ -4,8 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="reviews")
-public class Review {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+public class Reviews {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer review_id;
 
     private String review;
@@ -17,13 +18,13 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="post_id")
-    private posts post;
+    private Posts post;
 
 
-    public Review() {
+    public Reviews() {
     }
 
-    public Review(Integer review_id, String review, Integer rating, Users user, posts post) {
+    public Reviews(Integer review_id, String review, Integer rating, Users user, Posts post) {
         this.review_id = review_id;
         this.review = review;
         this.rating = rating;
@@ -63,11 +64,11 @@ public class Review {
         this.user = user;
     }
 
-    public posts getPost() {
+    public Posts getPost() {
         return post;
     }
 
-    public void setPost(posts post) {
+    public void setPost(Posts post) {
         this.post = post;
     }
 
