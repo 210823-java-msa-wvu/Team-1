@@ -5,7 +5,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="comments")
-
 public class Comments {
 
     @Id
