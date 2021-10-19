@@ -18,7 +18,7 @@ public class ReviewController {
     private ReviewsRepo reviewRepository;
 
     @Autowired
-    private ReviewService reviewService;
+    private ReviewController(ReviewsRepo reviewRepository) {this.reviewRepository = reviewRepository;}
 
     //get all
     @GetMapping
@@ -27,12 +27,10 @@ public class ReviewController {
     }
 
     //by id
-    @GetMapping
+    @GetMapping(path="/{review_id}")
     public Reviews getById(@PathVariable("review_id") Integer id){
         return reviewRepository.getById(id);
     }
-
-
 
 //    @PostMapping("/reviews/new")
         @PostMapping(consumes = "application/json", produces = "application/json")
@@ -53,7 +51,7 @@ public class ReviewController {
     //delete
     @DeleteMapping(path="/{review_id}")
     public void deleteReview(@PathVariable("review_id") Integer id){
-            reviewRepository.deleteById(id);
+            reviewRepository.delete(reviewRepository.getById(id));
 
     }
 }
