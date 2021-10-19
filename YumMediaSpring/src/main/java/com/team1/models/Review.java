@@ -4,9 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="reviews")
-public class Reviews {
+public class Review {
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer post_id;
+    private Integer review_id;
 
     private String review;
     private Integer rating;
@@ -20,23 +20,23 @@ public class Reviews {
     private posts post;
 
 
-    public Reviews() {
+    public Review() {
     }
 
-    public Reviews(Integer post_id, String review, Integer rating, Users user, posts post) {
-        this.post_id = post_id;
+    public Review(Integer review_id, String review, Integer rating, Users user, posts post) {
+        this.review_id = review_id;
         this.review = review;
         this.rating = rating;
         this.user = user;
         this.post = post;
     }
 
-    public Integer getPost_id() {
-        return post_id;
+    public Integer getReview_id() {
+        return review_id;
     }
 
-    public void setPost_id(Integer post_id) {
-        this.post_id = post_id;
+    public void setReview_id(Integer review_id) {
+        this.review_id = review_id;
     }
 
     public String getReview() {
@@ -55,26 +55,26 @@ public class Reviews {
         this.rating = rating;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
-    public Post getPost() {
+    public posts getPost() {
         return post;
     }
 
-    public void setPost(Post post) {
+    public void setPost(posts post) {
         this.post = post;
     }
 
     @Override
     public String toString() {
         return "Reviews{" +
-                "post_id=" + post_id +
+                "review_id=" + review_id +
                 ", review='" + review + '\'' +
                 ", rating=" + rating +
                 ", user=" + user +
