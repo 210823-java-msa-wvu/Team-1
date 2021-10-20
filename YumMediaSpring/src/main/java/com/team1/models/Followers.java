@@ -10,11 +10,11 @@ public class Followers {
     private Integer referenceId;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "follower")
+    @JoinColumn(name = "id")
     private Integer follower;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "following")
+    @JoinColumn(name = "id")
     private Integer following;
 
     public Followers() {
