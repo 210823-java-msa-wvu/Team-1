@@ -9,10 +9,12 @@ public class Followers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer referenceId;
 
-    @Column(name = "follower")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "follower")
     private Integer follower;
 
-    @Column(name = "following")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "following")
     private Integer following;
 
     public Followers() {
