@@ -13,7 +13,7 @@ public class Reviews {
     private Integer rating;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="id")
     private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY)
