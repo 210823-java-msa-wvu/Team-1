@@ -28,8 +28,8 @@ public class ReviewController {
 
     //by id
     @GetMapping(path="/{review_id}")
-    public Reviews getById(@PathVariable("review_id") Integer id){
-        return reviewRepository.getById(id);
+    public Reviews getById(@PathVariable("review_id") Integer review_id){
+        return reviewRepository.getById(review_id);
     }
 //add
 //    @PostMapping("/reviews/new")
@@ -41,9 +41,9 @@ public class ReviewController {
     //update
     @PutMapping(path="/update/{review_id}")
     public void updateReview(@PathVariable("review_id") Integer review_id, @RequestBody Reviews review){
-        if(review_id == review.getReview_id()){
+//        if(review_id == review.getReview_id()){
             reviewRepository.save(review);
-        }
+//        }
     }
 
 
