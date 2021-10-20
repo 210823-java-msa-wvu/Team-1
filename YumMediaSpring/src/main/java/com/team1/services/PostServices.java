@@ -25,7 +25,7 @@ public class PostServices {
 
     //update
     public void updatePost(Posts post){
-        PostRepo.save(Posts);
+        PostRepo.save(post);
     }
 
     //delete
