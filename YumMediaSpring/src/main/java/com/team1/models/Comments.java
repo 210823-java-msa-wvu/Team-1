@@ -11,11 +11,13 @@ public class Comments {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer commentId;
 
-    @Column(name="user_id")
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private Users user;
 
-    @Column(name="post_id")
-    private int postId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="post_id")
+    private Posts post;
 
     @Column(name="comment_description")
     private String commentDescription;
@@ -23,16 +25,16 @@ public class Comments {
     public Comments() {
     }
 
-    public Comments(int userId, int postId, String commentDescription) {
-        this.userId = userId;
-        this.postId = postId;
+    public Comments(Users user, Posts post, String commentDescription) {
+        this.user = user;
+        this.post = post;
         this.commentDescription = commentDescription;
     }
 
-    public Comments(Integer commentId, int userId, int postId, String commentDescription) {
+    public Comments(Integer commentId, Users user, Posts post, String commentDescription) {
         this.commentId = commentId;
-        this.userId = userId;
-        this.postId = postId;
+        this.user = user;
+        this.post = post;
         this.commentDescription = commentDescription;
     }
 
@@ -44,20 +46,20 @@ public class Comments {
         this.commentId = commentId;
     }
 
-    public int getUserId() {
-        return userId;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
-    public int getPostId() {
-        return postId;
+    public Posts getPost() {
+        return post;
     }
 
-    public void setPostId(int postId) {
-        this.postId = postId;
+    public void setPost(Posts post) {
+        this.post = post;
     }
 
     public String getCommentDescription() {
@@ -72,9 +74,64 @@ public class Comments {
     public String toString() {
         return "Comments{" +
                 "commentId=" + commentId +
-                ", userId=" + userId +
-                ", postId=" + postId +
+                ", user=" + user +
+                ", post=" + post +
                 ", commentDescription='" + commentDescription + '\'' +
                 '}';
     }
+
+    //    public Comments(int userId, int postId, String commentDescription) {
+//        this.userId = userId;
+//        this.postId = postId;
+//        this.commentDescription = commentDescription;
+//    }
+//
+//    public Comments(Integer commentId, int userId, int postId, String commentDescription) {
+//        this.commentId = commentId;
+//        this.userId = userId;
+//        this.postId = postId;
+//        this.commentDescription = commentDescription;
+//    }
+//
+//    public Integer getCommentId() {
+//        return commentId;
+//    }
+//
+//    public void setCommentId(Integer commentId) {
+//        this.commentId = commentId;
+//    }
+//
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
+//
+//    public int getPostId() {
+//        return postId;
+//    }
+//
+//    public void setPostId(int postId) {
+//        this.postId = postId;
+//    }
+//
+//    public String getCommentDescription() {
+//        return commentDescription;
+//    }
+//
+//    public void setCommentDescription(String commentDescription) {
+//        this.commentDescription = commentDescription;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Comments{" +
+//                "commentId=" + commentId +
+//                ", userId=" + userId +
+//                ", postId=" + postId +
+//                ", commentDescription='" + commentDescription + '\'' +
+//                '}';
+//    }
 }
