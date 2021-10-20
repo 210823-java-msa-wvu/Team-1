@@ -10,6 +10,8 @@ public class Users {
     // Create the instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name="id")
     private Integer id;
 
     @Column

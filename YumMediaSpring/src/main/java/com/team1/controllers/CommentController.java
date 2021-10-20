@@ -10,10 +10,11 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/comments")
 public class CommentController {
+
     private CommentsRepo commentRepo;
 
     @Autowired
-    public CommentController(CommentsRepo commentRepo) {
+    private CommentController(CommentsRepo commentRepo) {
         this.commentRepo = commentRepo;
     }
 
@@ -32,7 +33,7 @@ public class CommentController {
         return commentRepo.save(comment);
     }
 
-    @PutMapping(path="/{comment_id}")
+    @PutMapping(path="/update/{comment_id}")
     public void updateComment(@PathVariable("comment_id") int id, @RequestBody Comments comment) {
         if (id == comment.getCommentId()) {
             commentRepo.save(comment);// this save method is coming from the JpaRepository -> it is like Hibernate's saveOrUpdate();
