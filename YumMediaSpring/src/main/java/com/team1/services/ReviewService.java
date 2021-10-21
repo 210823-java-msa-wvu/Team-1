@@ -26,8 +26,8 @@ public class ReviewService {
     }
 
 
-    public List<Reviews> getAllReviewsPosts(@PathVariable Integer post_id){
-        Posts post = postRepo.findById(post_id).orElse(null);
+    public List<Reviews> getAllReviewsPosts(Posts post){
+//        Posts post = postRepo.findById(post).get();
         return reviewRepository.findByPost(post);
 
     }
