@@ -1,6 +1,8 @@
 package com.team1.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="posts")

@@ -9,22 +9,15 @@ public class Followers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer referenceId;
 
-<<<<<<< HEAD
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id")
-    private Integer follower;
-
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id")
-=======
-//    @OneToOne(fetch = FetchType.LAZY)
+    //    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     private Integer follower;
 
-//    @OneToOne(fetch = FetchType.LAZY)
+    //    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
->>>>>>> master
     private Integer following;
+
+
 
     public Followers() {
 
