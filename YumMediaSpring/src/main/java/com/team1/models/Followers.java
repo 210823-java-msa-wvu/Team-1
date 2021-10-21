@@ -28,15 +28,15 @@ public class Followers {
         this.following = following;
     }
 
-    public Users getUser() {
+    public Users getFollower() {
         return follower;
     }
 
-    public void setUser(Users user) {
+    public void setFollower(Users user) {
         this.follower = user;
     }
 
-    /*
+
     public Users getFollowing() {
         return following;
     }
@@ -45,5 +45,4 @@ public class Followers {
         this.following = following;
     }
 
-     */
 }
