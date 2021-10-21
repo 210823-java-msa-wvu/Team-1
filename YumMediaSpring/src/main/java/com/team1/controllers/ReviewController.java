@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -25,9 +26,12 @@ public class ReviewController {
 
     //get all
     @GetMapping
-    public List<Reviews> getAllReview(){
-        return reviewRepository.findAll();
+    public List<Reviews> getAllReviews(){
+//        System.out.println("getting reviews");
+        return reviewService.getAllReviews();
     }
+
+
 
     //by id
     @GetMapping(path="/{review_id}")

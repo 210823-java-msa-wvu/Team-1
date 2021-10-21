@@ -1,5 +1,7 @@
 package com.team1.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,10 +16,12 @@ public class Reviews {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="post_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Posts post;
 
 
