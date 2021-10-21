@@ -18,6 +18,9 @@ public class ReviewController {
     private ReviewsRepo reviewRepository;
 
     @Autowired
+    ReviewService reviewService;
+
+    @Autowired
     private ReviewController(ReviewsRepo reviewRepository) {this.reviewRepository = reviewRepository;}
 
     //get all
@@ -29,7 +32,7 @@ public class ReviewController {
     //by id
     @GetMapping(path="/{review_id}")
     public Reviews getById(@PathVariable("review_id") Integer review_id){
-        return reviewRepository.getById(review_id);
+        return reviewRepository.findById(review_id).orElse(null);
     }
 //add
 //    @PostMapping("/reviews/new")
@@ -41,9 +44,9 @@ public class ReviewController {
     //update
     @PutMapping(path="/update/{review_id}")
     public void updateReview(@PathVariable("review_id") Integer review_id, @RequestBody Reviews review){
-//        if(review_id == review.getReview_id()){
-            reviewRepository.save(review);
-//        }
+        if(review_id == review.getReview_id()){
+            reviewService.updateReview(review);
+        }
     }
 
 

@@ -1,14 +1,20 @@
 package com.team1.models;
 
 import javax.persistence.*;
+import com.team1.models.Users;
 
 @Entity
-@Table(name="followers")
 public class Followers {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer referenceId;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer reference_id;
+
+    @ManyToOne
+    @JoinColumn(name="follower")
+    private Users follower;
+
+<<<<<<< HEAD
     //    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     private Integer follower;
@@ -16,6 +22,12 @@ public class Followers {
     //    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     private Integer following;
+=======
+    @ManyToOne
+    @JoinColumn(name="following")
+    private Users following;
+
+>>>>>>> master
 
 
 
@@ -23,42 +35,26 @@ public class Followers {
 
     }
 
-    public Followers(Integer referenceId, Integer follower, Integer following) {
-        this.referenceId = referenceId;
+    public Followers(Users follower, Users following) {
         this.follower = follower;
         this.following = following;
     }
 
-    public Integer getReferenceId() {
-        return referenceId;
-    }
-
-    public void setReferenceId(Integer referenceId) {
-        this.referenceId = referenceId;
-    }
-
-    public Integer getFollower() {
+    public Users getFollower() {
         return follower;
     }
 
-    public void setFollower(Integer follower) {
-        this.follower = follower;
+    public void setFollower(Users user) {
+        this.follower = user;
     }
 
-    public Integer getFollowing() {
+
+    public Users getFollowing() {
         return following;
     }
 
-    public void setFollowing(Integer following) {
+    public void setFollowing(Users following) {
         this.following = following;
     }
 
-    @Override
-    public String toString() {
-        return "Followers{" +
-                "referenceId=" + referenceId +
-                ", follower=" + follower +
-                ", following=" + following +
-                '}';
-    }
 }
