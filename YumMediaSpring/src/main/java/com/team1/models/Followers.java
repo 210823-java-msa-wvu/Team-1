@@ -14,21 +14,9 @@ public class Followers {
     @JoinColumn(name="follower")
     private Users follower;
 
-<<<<<<< HEAD
-    //    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private Integer follower;
-
-    //    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private Integer following;
-=======
     @ManyToOne
     @JoinColumn(name="following")
     private Users following;
-
->>>>>>> master
-
 
 
     public Followers() {
