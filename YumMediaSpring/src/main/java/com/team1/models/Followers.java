@@ -1,62 +1,49 @@
 package com.team1.models;
 
 import javax.persistence.*;
+import com.team1.models.Users;
 
 @Entity
-@Table(name="followers")
 public class Followers {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer referenceId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer reference_id;
 
-//    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private Integer follower;
+    @ManyToOne
+    @JoinColumn(name="follower")
+    private Users follower;
 
-//    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private Integer following;
+    @ManyToOne
+    @JoinColumn(name="following")
+    private Users following;
+
 
     public Followers() {
 
     }
 
-    public Followers(Integer referenceId, Integer follower, Integer following) {
-        this.referenceId = referenceId;
+    public Followers(Users follower, Users following) {
         this.follower = follower;
         this.following = following;
     }
 
-    public Integer getReferenceId() {
-        return referenceId;
-    }
-
-    public void setReferenceId(Integer referenceId) {
-        this.referenceId = referenceId;
-    }
-
-    public Integer getFollower() {
+    public Users getUser() {
         return follower;
     }
 
-    public void setFollower(Integer follower) {
-        this.follower = follower;
+    public void setUser(Users user) {
+        this.follower = user;
     }
 
-    public Integer getFollowing() {
+    /*
+    public Users getFollowing() {
         return following;
     }
 
-    public void setFollowing(Integer following) {
+    public void setFollowing(Users following) {
         this.following = following;
     }
 
-    @Override
-    public String toString() {
-        return "Followers{" +
-                "referenceId=" + referenceId +
-                ", follower=" + follower +
-                ", following=" + following +
-                '}';
-    }
+     */
 }
