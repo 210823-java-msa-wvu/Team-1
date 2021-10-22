@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Review } from './models/review';
+import { ReviewsService} from './services/reviews.service'
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,20 @@ import { Review } from './models/review';
 })
 export class AppComponent  {
   title = 'yummedia';
-  // public review: Review[];
+  // public reviews: Review[];
 
 
 
-  constructor( private http: HttpClient) {} //calling service
+  // constructor(private reviewService : ReviewsService) {} //calling service
+
+  // public getReviews(): void {
+  //   this.reviewService.getAllReviews().subscribe(
+  //     (response: Review[]) => {
+  //       this.reviews = response;
+  //     },
+  //     (error: HttpErrorResponse)=>{
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }
