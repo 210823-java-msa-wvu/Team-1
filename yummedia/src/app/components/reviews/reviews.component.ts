@@ -11,8 +11,8 @@ import { ReviewsService} from '../../services/reviews.service'
 })
 export class ReviewsComponent implements OnInit {
 
-  public reviews: Review[];
-  public editReview: Review;
+  public reviews: Review[] |any;
+  public editReview: Review | any;
 
 
 
