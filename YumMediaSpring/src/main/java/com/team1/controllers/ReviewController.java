@@ -2,13 +2,17 @@ package com.team1.controllers;
 
 
 
+import com.team1.models.Posts;
 import com.team1.models.Reviews;
 import com.team1.repositories.ReviewsRepo;
+import com.team1.services.PostServices;
 import com.team1.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -17,17 +21,31 @@ public class ReviewController {
 
     private ReviewsRepo reviewRepository;
 
+    private PostServices postServices;
+
     @Autowired
     ReviewService reviewService;
 
     @Autowired
-    private ReviewController(ReviewsRepo reviewRepository) {this.reviewRepository = reviewRepository;}
+    private ReviewController(ReviewsRepo reviewRepository, PostServices postServices) {
+        this.reviewRepository = reviewRepository;
+        this.postServices = postServices;
+    }
 
     //get all
     @GetMapping
-    public List<Reviews> getAllReview(){
-        return reviewRepository.findAll();
+    public List<Reviews> getAllReviews(){
+//        System.out.println("getting reviews");
+        return reviewService.getAllReviews();
     }
+    //get all by post id
+    @GetMapping(path="/post/{post_id}")
+    public List<Reviews>  getAllReviewsPosts(@PathVariable("post_id") Integer post_id){
+        Posts post = postServices.getPost(post_id);
+        return reviewService.getAllReviewsPosts(post);
+    }
+
+
 
     //by id
     @GetMapping(path="/{review_id}")
@@ -52,7 +70,7 @@ public class ReviewController {
 
 
     //delete
-    @DeleteMapping(path="/{review_id}")
+    @DeleteMapping(path="/delete/{review_id}")
     public void deleteReview(@PathVariable("review_id") Integer id){
             reviewRepository.delete(reviewRepository.getById(id));
 

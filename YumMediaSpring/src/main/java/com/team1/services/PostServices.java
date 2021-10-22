@@ -3,9 +3,11 @@ package com.team1.services;
 import com.team1.models.Posts;
 import com.team1.repositories.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PostServices {
 
     @Autowired
