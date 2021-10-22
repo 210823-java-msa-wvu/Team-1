@@ -10,6 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.team1") // alerts spring to look for components / stereotypes
 @EntityScan("com.team1.models")
 @EnableJpaRepositories("com.team1.repositories")
+
+
 public class YumMediaSpringApplication {
 
 	public static void main(String[] args) {

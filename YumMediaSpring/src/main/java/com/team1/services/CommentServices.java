@@ -7,10 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CommentServices {
 
-    @Autowired
     private CommentsRepo commentRepository;
+
+    @Autowired
+    public CommentServices(CommentsRepo commentRepository) { this.commentRepository = commentRepository; }
 
     //read
     public List<Comments> getAllComments(){
