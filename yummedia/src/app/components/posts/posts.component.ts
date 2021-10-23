@@ -11,6 +11,8 @@ import { Post } from 'src/app/models/post';
 export class PostsComponent implements OnInit {
   public post : Post[] | any;
   
+  private headers = {'Content-Type': 'application/json'}
+
 
   constructor(private postService: PostService) { }
 
