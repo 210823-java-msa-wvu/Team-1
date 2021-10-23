@@ -10,6 +10,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.css']
 })
+
+
 export class CommentsComponent implements OnInit {
 
   public comments : Comment[] | any;
