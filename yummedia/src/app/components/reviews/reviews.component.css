@@ -1,0 +1,18 @@
+.review-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-bottom: 10px ;
+}
+
+.review-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.button{
+    display: flex;
+    justify-content: space-between;
+
+
+}
