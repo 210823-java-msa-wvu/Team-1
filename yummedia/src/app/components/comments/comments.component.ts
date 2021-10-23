@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CommentService } from 'src/app/services/comment.service';
+import { Comment } from 'src/app/models/comment';
+import { HttpErrorResponse } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-comments',
@@ -7,9 +12,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
 
-  constructor() { }
+  public comments : Comment[] | any;
+
+  constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
+    this.getComments();
+  }
+
+  public getComments(): void {
+    this.commentService.getAllComments()
+    .subscribe(
+      (response:Comment[]) => {
+        this.comments = response
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error)
+      }
+    )
   }
 
 }
+
+//   // READ 
+//   public getPosts(): void {
+//     this.postService.getAllPosts()
+//     .subscribe(
+//       (response:Post[]) => {
+//         this.post = response
+//       },
+//       (error: HttpErrorResponse) => {
+//         console.log(error)
+//       }
+      
+//     );
+//   }
+
+// }
