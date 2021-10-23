@@ -41,6 +41,7 @@ public class UserController {
 
 
 
+
     //UPDATE - updateUser. This path will help update a user's information.
     @PutMapping(path ="/update/{user_id}")//, consumes = "application/json", produces = "application/json")
     public void updateUser (@PathVariable Integer user_id, @RequestBody Users user){
