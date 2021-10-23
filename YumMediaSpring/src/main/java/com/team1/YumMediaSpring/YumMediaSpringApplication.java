@@ -10,6 +10,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -21,6 +22,7 @@ public class YumMediaSpringApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(YumMediaSpringApplication.class, args);
+
 	}
 
 	@Bean
