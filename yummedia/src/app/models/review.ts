@@ -6,8 +6,8 @@ export interface Review{
     review_id: number;
     review: string;
     rating: number;
-    user: number;
-    post: number;
+    user: Object;
+    post: Object;
 
 
     
