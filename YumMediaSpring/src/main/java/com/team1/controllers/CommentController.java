@@ -1,7 +1,10 @@
 package com.team1.controllers;
 import com.team1.models.Comments;
+import com.team1.models.Posts;
+import com.team1.models.Reviews;
 import com.team1.repositories.CommentsRepo;
 import com.team1.services.CommentServices;
+import com.team1.services.PostServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +21,12 @@ public class CommentController {
 //    @Autowired
     private CommentServices commentService;
 
+    private PostServices postServices;
+
     @Autowired
-    public CommentController(CommentServices commentService) {
+    public CommentController(CommentServices commentService, PostServices postServices) {
         this.commentService = commentService;
+        this.postServices = postServices;
     }
 
     @GetMapping
@@ -33,9 +39,16 @@ public class CommentController {
         }
 
         return myList;
-
-
     }
+
+    //get all by post id
+    @GetMapping(path="/post/{post_id}")
+    public List<Comments>  getAllCommentsPosts(@PathVariable("post_id") Integer post_id){
+        Posts post = postServices.getPost(post_id);
+        return commentService.getAllCommentsPosts(post);
+    }
+
+
 
     @GetMapping(path="/{comment_id}")
     public Comments getComment(@PathVariable Integer comment_id) {

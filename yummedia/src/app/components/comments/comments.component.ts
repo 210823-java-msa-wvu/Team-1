@@ -34,6 +34,16 @@ export class CommentsComponent implements OnInit {
     )
   }
 
+  // public addComment(comment: Comment): void {
+  //   this.commentService.addComment(comment)
+  //   .subscribe(
+  //     (response:Comment)=> {
+  //       this.com
+  //     }
+  //   )
+
+  // }
+
 }
 
 //   // READ 
