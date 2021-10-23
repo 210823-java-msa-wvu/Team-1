@@ -15,6 +15,7 @@ import java.util.Optional;
 public class CommentController {
 //    private CommentsRepo commentRepo;
 
+//    @Autowired
     private CommentServices commentService;
 
     @Autowired
