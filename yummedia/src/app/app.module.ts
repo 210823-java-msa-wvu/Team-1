@@ -12,18 +12,20 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './components/registration/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReviewsComponent,
     PostsComponent,
-    CommentsComponent,
+    // CommentsComponent,
     LoginComponent,
     LogoutComponent,
     AdminComponent,
     HomeComponent,
-    RegistrationComponent
+    RegistrationComponent, 
+    
   ],
   imports: [
     BrowserModule,
