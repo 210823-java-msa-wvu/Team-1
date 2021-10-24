@@ -1,21 +1,34 @@
 <p>comments works!</p>
 
 <h2>Comments</h2>
-<ul>
+<!-- <ul>
     <li *ngFor = "let comment of comments">
         <span>{{ comment.commentDescription }} </span>
     </li>
 
-</ul>
-<div class="container">
+</ul> -->
 
 
-        <label for="employee_id">Comment:
-            <input id="employee_id" type="text" name="employee_id" class="form-control">
-        </label>
-        <br><br>
-        <button type="button" id="addReimbursement" class="btn btn-primary" >Comment</button>
+<mat-card *ngFor="let c of comments" class="comment-card">
+    <mat-card-header>
 
+        <mat-card-title>{{c.commentId}}</mat-card-title>
 
-</div>
+    </mat-card-header>
+    <!-- <b>Rating:</b> {{ r.rating }} -->
+    <mat-card-content>
+        <p>
+            <b>Comment: </b>{{ c.commentDescription }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit"><button mat-button color="primary">edit</button> </div>
+            <div class="delete">
+                <button mat-button color="warn">delete</button>
+            </div>
 
+        </div>
+
+    </mat-card-actions>
+</mat-card>

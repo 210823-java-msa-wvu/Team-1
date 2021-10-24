@@ -17,7 +17,6 @@ import { Location } from '@angular/common';
 export class CommentsDetailComponent implements OnInit {
 
   @Input() comment?: Comment;
-  public comments : Comment[] | any;
 
   constructor(
     private commentService: CommentService,
