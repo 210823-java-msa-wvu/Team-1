@@ -21,7 +21,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-
+import {Component, Inject} from '@angular/core';
+import { MatDialogModule} from '@angular/material/dialog';
+// import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,9 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     RegistrationComponent, 
     
   ],
+  entryComponents:[
+    ReviewsComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,9 +49,15 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     MatSliderModule,
     MatCardModule,
     MatButtonModule,
+    MatSliderModule,
+    MatDialogModule,
+    
+
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true},

@@ -7,6 +7,7 @@
         <span>{{ r.review_id}} </span>
         <span>{{ r.review }} </span>
         <span>{{ r.rating }} </span>
+        <!-- <span>{{ r.$post.description }} </span> -->
         <!-- <span>{{ r.user.username}} </span>
         <span>{{ r.post.post_id}} </span> -->
 
@@ -42,7 +43,7 @@
     </mat-card-content>
     <mat-card-actions>
         <div class="button">
-            <div class="edit"><button mat-button color="primary">edit</button> </div>
+            <div class="edit"><button  (click)="onOpenDialogClick()" mat-button color="primary">edit</button> <app-reviews> </app-reviews></div>
             <div class="delete">
                 <button mat-button color="warn">delete</button>
             </div>
@@ -66,3 +67,28 @@
         </form>
     </div>
 </div> -->
+
+<!-- Edit -->
+
+
+
+<form >
+    <div class="form-group">
+        <label for="name">Review Id</label>
+        <input type="number" name="review" class="form-control" id="review_id" aria-describedby="review" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="name">Review</label>
+        <input type="text" name="name" class="form-control" id="review" aria-describedby="review" placeholder="review">
+    </div>
+    
+
+    <div class="form-group">
+        <label for="name">Rating</label>
+        <input type="number" name="rating" class="form-control" id="rating" placeholder="rating">
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+        <button  click="onUpdateReview">update</button>
+    </div>
+</form>
