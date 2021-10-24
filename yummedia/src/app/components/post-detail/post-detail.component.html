@@ -1,0 +1,62 @@
+<!-- <div *ngIf="comment"> -->
+
+    <!-- <h2>{{comment.commentDescription | uppercase}} Details</h2> -->
+    <!-- <div><span>id: </span>{{comment.commentId}}</div>
+    <div>
+      <label for="comment-descr">Comment: </label>
+      <input id="comment-descr" [(ngModel)]="comment.commentDescription">
+    </div>
+
+</div> -->
+
+
+<!-- <div>
+    <label for="new-comment">Comment: </label>
+    <input id="new-comment" #comment /> -->
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <!-- <button class="add-button" (click)="add(heroName.value); heroName.value=''">
+      Add hero
+    </button>
+</div> -->
+
+<mat-card *ngIf = "post" class="post-card">
+    <mat-card-header>
+
+        <mat-card-title> {{post.postId}}</mat-card-title>
+
+    </mat-card-header>
+    <!-- <b>Rating:</b> {{ r.rating }} -->
+    <mat-card-content>
+        <p>
+            <b>Post: </b>{{ post.description }}
+            <b>Ingredients: </b> {{post.ingredients}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit"><button mat-button color="primary">edit</button> </div>
+            <div class="delete">
+                <button mat-button color="warn">delete</button>
+            </div>
+
+        </div>
+
+    </mat-card-actions>
+</mat-card>
+
+<h2>Comments</h2>
+<ul>
+    <li *ngFor = "let comment of commentsPost">
+        <span>{{ comment.commentDescription }} </span>
+    </li>
+
+</ul>
+
+
+<!-- <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="commentDescr">First Name</label>
+        <input type="text" formControlName="commentDescr" class="form-control" />
+    </div>
+</form> -->

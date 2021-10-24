@@ -21,6 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     AdminComponent,
     HomeComponent,
     CommentsDetailComponent,
-    RegistrationComponent, 
+    RegistrationComponent,
+    PostDetailComponent, 
     
   ],
   imports: [
