@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,24 +14,6 @@ import { PostService } from 'src/app/services/post.service';
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css']
 })
-
-
-
-
-
-
-// import { Comment } from 'src/app/models/comment';
-// import { HttpErrorResponse } from '@angular/common/http';
-// import { ActivatedRoute } from '@angular/router';
-// import { Location } from '@angular/common';
-
-
-
-// @Component({
-//   selector: 'app-comments',
-//   templateUrl: './comments.component.html',
-//   styleUrls: ['./comments.component.css']
-// })
 
 export class PostDetailComponent implements OnInit {
 
@@ -53,7 +36,7 @@ export class PostDetailComponent implements OnInit {
   getPost(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.postService.getPost(id)
-      .subscribe(post => this.post = post);
+      .subscribe(post => this.post = post);    
   }
 
   getCommentsPost(): void{
@@ -68,50 +51,21 @@ export class PostDetailComponent implements OnInit {
       }
     )
   }
-
-
-  // addComment(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.heroService.addHero({ name } as Hero)
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //     });
-  // }
-
+  addComment(description:string): void {
+    description = description.trim();
+    if (!description) { return; }
+    this.commentService.addComment({ description } as Comment)
+      .subscribe(comment => {
+        this.commentsPost.push(comment);
+      });
+  }
+    
 }
-// onSubmit() {
-//   this.submitted = true;
-
-
-
-//   this.loading = true;
-//   this.userService.addUser(this.registerForm.value)
-//       .pipe(first())
-//       .subscribe(
-//           data => {
-//               this.router.navigate(['/login'], { queryParams: { registered: true }});
-//           },
-//           error => {
-//               this.error = error;
-//               this.loading = false;
-//           });
+// add(name: string): void {
+//   name = name.trim();
+//   if (!name) { return; }
+//   this.heroService.addHero({ name } as Hero)
+//     .subscribe(hero => {
+//       this.heroes.push(hero);
+//     });
 // }
-
-// }
-
-
-
-  // public addComment(comment: Comment): void {
-  //   this.commentService.addComment(comment)
-  //   .subscribe(
-  //     (response:Comment)=> {
-  //       this.com
-  //     }
-  //   )
-
-  // }
-
-// }
-
-
