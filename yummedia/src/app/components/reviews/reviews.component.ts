@@ -15,6 +15,7 @@ export class ReviewsComponent implements OnInit {
 
   public reviews: Review[] |any;
   public editReview: Review | any;
+  public deleteReview: Review | any;
   // public deleteReview: Review;
   // reviewForm: FormGroup;
   // review: new FormControl('');
@@ -117,7 +118,7 @@ export class ReviewsComponent implements OnInit {
       button.setAttribute('data-target', '#updateReviewModal');
     }
     // if (mode === 'delete') {
-    //   this.deleteReview = review;
+    //   this.ondeleteReview = review;
     //   button.setAttribute('data-target', '#deleteReviewModal');
     // }
     // container.appendChild(button);
