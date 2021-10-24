@@ -9,7 +9,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration/registration.component';
@@ -17,12 +17,17 @@ import { RegistrationComponent } from './components/registration/registration/re
 import { MatSliderModule } from '@angular/material/slider';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ReviewsComponent,
     PostsComponent,
-    // CommentsComponent,
+    CommentsComponent,
     LoginComponent,
     LogoutComponent,
     AdminComponent,
@@ -37,9 +42,14 @@ import {MatButtonModule} from '@angular/material/button';
     MatSliderModule,
     MatCardModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true}
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

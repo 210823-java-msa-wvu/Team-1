@@ -1,10 +1,19 @@
 <!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="navbar-nav">
-        <!-- <a class="nav-item nav-link" routerLink="/">Home</a> -->
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <br>
         <a class="nav-item nav-link" routerLink="/login">Login</a>
         <br>
         <a class="nav-item nav-link" routerLink="/registration">Register</a>
+    </div>
+</nav>
+
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <!-- <a class="nav-item nav-link" routerLink="/">Home</a> -->
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>
 
