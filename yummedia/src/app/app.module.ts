@@ -12,6 +12,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommentsDetailComponent } from './components/comment-detail/comment-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     LogoutComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    CommentsDetailComponent
   ],
   imports: [
     BrowserModule,

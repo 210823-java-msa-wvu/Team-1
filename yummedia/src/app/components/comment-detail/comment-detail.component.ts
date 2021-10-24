@@ -8,13 +8,13 @@ import { Location } from '@angular/common';
 
 
 @Component({
-  selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  selector: 'app-comment-detail',
+  templateUrl: './comment-detail.component.html',
+  styleUrls: ['./comment-detail.component.css']
 })
 
 
-export class CommentsComponent implements OnInit {
+export class CommentsDetailComponent implements OnInit {
 
   @Input() comment?: Comment;
   public comments : Comment[] | any;
@@ -25,19 +25,7 @@ export class CommentsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getComments();
-  }
-
-  public getComments(): void {
-    this.commentService.getAllComments()
-    .subscribe(
-      (response:Comment[]) => {
-        this.comments = response
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error)
-      }
-    )
+    this.getComment();
   }
 
   getComment(): void {
@@ -58,18 +46,4 @@ export class CommentsComponent implements OnInit {
 
 }
 
-//   // READ 
-//   public getPosts(): void {
-//     this.postService.getAllPosts()
-//     .subscribe(
-//       (response:Post[]) => {
-//         this.post = response
-//       },
-//       (error: HttpErrorResponse) => {
-//         console.log(error)
-//       }
-      
-//     );
-//   }
 
-// }
