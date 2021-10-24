@@ -23,7 +23,7 @@ export class ReviewsService {
     return this.http.post<Review>(`${this.springServerUrl}/reviews/new`, review);
   }
   public updateReview(review: Review): Observable<Review> {
-    return this.http.put<Review>(`${this.springServerUrl}/reviews/update`, review);
+    return this.http.put<Review>(`${this.springServerUrl}/reviews/update/`, review);
   }
 
   public deleteReview(review_id: number): Observable<void> {
