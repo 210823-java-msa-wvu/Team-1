@@ -19,8 +19,8 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'registration', component:RegistrationComponent},
 
-  // // otherwise, redirect to home
-  // {path: '**', redirectTo: ''}
+  // otherwise, redirect to home
+  {path: '**', redirectTo: ''}
 
 ];
 
