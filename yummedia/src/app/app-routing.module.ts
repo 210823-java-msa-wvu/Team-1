@@ -23,8 +23,8 @@ const routes: Routes = [
   {path: 'comments/post/:id', component: PostDetailComponent},
   {path: 'comments', component: PostDetailComponent}
 
-  // // otherwise, redirect to home
-  // {path: '**', redirectTo: ''}
+  // otherwise, redirect to home
+  {path: '**', redirectTo: ''}
 
 ];
 
