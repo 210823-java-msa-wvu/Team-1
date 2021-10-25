@@ -25,6 +25,8 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 
 import {Component, Inject} from '@angular/core';
 import { MatDialogModule} from '@angular/material/dialog';
+
+import { AddPostComponent } from './components/add-post/add-post.component';
 import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
 
 // import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -41,6 +43,7 @@ import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
     HomeComponent,
     CommentsDetailComponent,
     RegistrationComponent,
+    AddPostComponent,
     PostDetailComponent, 
     
   ],

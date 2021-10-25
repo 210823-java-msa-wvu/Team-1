@@ -31,6 +31,9 @@ export class PostService {
   // PUT
 
   // POST
+  public addPost(post: any) {
+    return this.http.post(`${this.springServerUrl}/post/addPost`, post);
+  }
 
   // DELETE
 
