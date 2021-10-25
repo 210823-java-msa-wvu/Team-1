@@ -28,13 +28,15 @@ export class AuthenticationService {
 
    login(username : string, password: string) {
      // here is where I need to access the user table in order to login a user. Inside the backticks
-     return this.http.post<any>(`${this.springServerUrl}/users/findUsername/${username}`, {username, password})
+     return this.http.post<any>(`${this.springServerUrl}/users/login`, {username, password})
      .pipe(map(user => {
        // store user detail and jwt token in local storage to keep user logged in between page refreshes
        localStorage.setItem('currentUser', JSON.stringify(user));
        this.currentUserSubject.next(user);
+       console.log(`authentication.service.ts  -  logging user: `, user);
        return user;
      }));
+     
    }
    
 

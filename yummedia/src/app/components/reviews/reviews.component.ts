@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Review } from '../../models/review';
 import { ReviewsService} from '../../services/reviews.service'
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import {  NgForm } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-reviews',
@@ -13,8 +14,9 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class ReviewsComponent implements OnInit {
 
-  public reviews: Review[] |any;
+  public reviews: Review[] | any;
   public editReview: Review | any;
+  public deleteReview: Review | any;
   // public deleteReview: Review;
   // reviewForm: FormGroup;
   // review: new FormControl('');
@@ -23,12 +25,18 @@ export class ReviewsComponent implements OnInit {
 
 
   constructor(
-    private reviewService : ReviewsService
+    private reviewService : ReviewsService,
+    public dialog: MatDialog,
+    // @Inject((MAT_DIALOG_DATA) private data:{ review:})
     ){
     // this.reviewForm = new FormGroup({review: this.review,});
 
 
   } 
+
+  
+
+
   
   ngOnInit(): void {
     this.getReviews();
@@ -100,12 +108,22 @@ export class ReviewsComponent implements OnInit {
   }
 
   
+  onOpenDialogClick(){
+    this.dialog.open(ReviewsComponent,
+      {
+        data: {
+          reviews: '',
+          rating: ''
+        }
 
+      });
+
+  }
 
 
   //logic for buttons
   public  onOpenModel(review: Review, mode: string): void{
-    const container = document.getElementById('main-container')
+    const container = document.getElementById('container')
     const button = document.createElement('button');
     button.type = 'button';
     button.setAttribute('data-toggle', 'modal');
@@ -117,11 +135,11 @@ export class ReviewsComponent implements OnInit {
       button.setAttribute('data-target', '#updateReviewModal');
     }
     // if (mode === 'delete') {
-    //   this.deleteReview = review;
+    //   this.ondeleteReview = review;
     //   button.setAttribute('data-target', '#deleteReviewModal');
     // }
-    // container.appendChild(button);
-    // button.click();
+  //   container.appendChild(button);
+  //   button.click();
   }
 
 } //end service

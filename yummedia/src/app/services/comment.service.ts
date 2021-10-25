@@ -31,9 +31,21 @@ export class CommentService {
     const url = `${this.springServerUrl}/comments/${id}`;
     return this.http.get<Comment>(url)
   }
+
+
+  // public addUser(user: any) {
+  //   return this.http.post(`${this.springServerUrl}/users/addUser`, user);
+  // }
   /** POST: add a new hero to the server */
-  addComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(this.springServerUrl, comment, this.httpOptions);
+  // public addComment(comment: Comment): Observable<Comment> {
+  //   console.log("fuck" + comment.commentDescription);
+  //   const url = `${this.springServerUrl}/comments`;
+
+  //   return this.http.post<Comment>(url, comment);
+    
+  // }
+    public addComment(comment: any) {
+    return this.http.post(`${this.springServerUrl}/comments`, comment);
   }
 
 

@@ -6,6 +6,7 @@ import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,6 +26,40 @@ public class UserController {
     @PostMapping(path ="/addUser", consumes = "application/json", produces = "application/json")
     public void addUser(@RequestBody Users user){
         userService.addUser(user);
+    }
+
+//    // Logic to Login a user
+//    @PostMapping(path = "/login")
+//    public boolean loginUser(@RequestBody Users users) {
+//        // This method will be used to return a boolean value for the login of a user
+//        List<Users> allUsers = userService.getAllUsers();
+//
+//        for (int i = 0; i < allUsers.size(); i++){
+//            if (Objects.equals(users.getUsername(), allUsers.get(i).getUsername()) &&
+//                    Objects.equals(users.getPassword(), allUsers.get(i).getPassword())  ) {
+//
+//                return true;
+//            }
+//        }
+//
+//        return false;
+//    }
+
+    // Logic to Login a user
+    @PostMapping(path = "/login")
+    public Users loginUser(@RequestBody Users users) {
+        // This method will be used to return a boolean value for the login of a user
+        List<Users> allUsers = userService.getAllUsers();
+
+        for (int i = 0; i < allUsers.size(); i++){
+            if (Objects.equals(users.getUsername(), allUsers.get(i).getUsername()) &&
+                    Objects.equals(users.getPassword(), allUsers.get(i).getPassword())  ) {
+
+                return userService.getUser(allUsers.get(i).getId());
+            }
+        }
+
+        return null;
     }
 
 

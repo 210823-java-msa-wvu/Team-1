@@ -20,10 +20,10 @@
     </button>
 </div> -->
 
-<mat-card *ngIf = "post" class="post-card">
+<mat-card *ngIf = "post" class="post-card" >
     <mat-card-header>
 
-        <mat-card-title> {{post.postId}}</mat-card-title>
+        <mat-card-title> {{post.post_id}}</mat-card-title>
 
     </mat-card-header>
     <!-- <b>Rating:</b> {{ r.rating }} -->
@@ -43,6 +43,11 @@
         </div>
 
     </mat-card-actions>
+
+
+
+
+    
 </mat-card>
 
 <h2>Comments</h2>
@@ -53,21 +58,19 @@
 
 </ul>
 
-<!-- <div>
-    <label for="new-comment">Comment: </label>
-    <input id="new-comment" #commentDescr /> -->
-    <!-- <button class="add-button" > -->
-  
-    <!-- <button class="add-button" (click)="addComment(commentDescr.value); commentDescr.value=''"> -->
-      <!-- Add Comment
-    </button>
-  </div> -->
-  <!-- <div>
-    <label for="new-hero">Hero name: </label>
-    <input id="new-hero" #heroName />
-   -->
-    <!-- (click) passes input value to add() and then clears the input -->
-    <!-- <button class="add-button" (click)="add(heroName.value); heroName.value=''">
-      Add hero
-    </button>
-  </div> -->
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="commentDescription">Comment Description</label>
+        <input type="text" formControlName="commentDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.commentDescription.errors }" />
+    </div>
+    <!-- <div class="form-group">
+        <label for="post">Post ID </label>
+        <input id= "postId" type="text" formControlName="post" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.post.errors }" />
+    </div>   -->
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Add Comment
+        </button>
+    </div>
+</form>

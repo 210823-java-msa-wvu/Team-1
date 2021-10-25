@@ -31,8 +31,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
       email: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -53,6 +53,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.loading = true;
+    console.log("NEW USER: " + this.registerForm.value);
     this.userService.addUser(this.registerForm.value)
         .pipe(first())
         .subscribe(

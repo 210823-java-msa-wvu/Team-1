@@ -20,7 +20,8 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'registration', component:RegistrationComponent},
   {path: 'post/findposts/:id', component: PostDetailComponent},
-  {path: 'comments/post/:id', component: PostDetailComponent}
+  {path: 'comments/post/:id', component: PostDetailComponent},
+  {path: 'comments', component: PostDetailComponent}
 
   // // otherwise, redirect to home
   // {path: '**', redirectTo: ''}
