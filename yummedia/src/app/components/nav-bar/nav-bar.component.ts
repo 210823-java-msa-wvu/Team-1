@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { userInfo } from 'os';
@@ -15,16 +16,21 @@ export class NavBarComponent implements OnInit {
   public user: User;
   public userService: UserService;
   
-  constructor(private authenticationService: AuthenticationService, private uService: UserService) {
-    this.user = authenticationService.currentUserValue;
-    this.userService = uService;
+  constructor(
+    private authenticationService: AuthenticationService,
+    private uService: UserService,
+    private router: Router
+    ) {
+      this.user = authenticationService.currentUserValue;
+      this.userService = uService;
   }
 
   ngOnInit(): void {
   }
 
   public logOut() {
-
+    this.authenticationService.logout();
+    this.router.navigate(["login"]);
   }
 
   public editProfile(): void {
