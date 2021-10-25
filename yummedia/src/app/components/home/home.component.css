@@ -1,3 +1,39 @@
+.home-content{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    
+    
+}
+.user-home-content{
+    padding: 10px;
+    height: 300px;
+    width: 270px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   padding-top: 10px;
+    
+}
+.welcome-content-welcome{
+    font-weight: bold;
+
+}
+    
+
+
+.post-content{
+    padding: 10px;
+}
+
+.post-content-title{
+    letter-spacing: 0.1rem;
+    font-style: italic;
+    border-bottom: 1px solid black;
+    color:black;
+    margin-bottom: 10px;
+}
+
+
+
 .post-card {
     max-width: 400px;
     margin: 0 auto;
