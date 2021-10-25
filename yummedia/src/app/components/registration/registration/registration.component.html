@@ -141,8 +141,6 @@
             </div>
 
             <div>
-
-
                 <input type="text" id="email" matInput formControlName="email" class="form-control"
                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                     [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="Enter email .." />
@@ -166,6 +164,15 @@
                 <div   *ngIf="submitted && f.password.errors" class="invalid-feedback"> </div>
                 <!-- <div *ngIf="f.password.errors.required">Password is Required</div> -->
 
+            </div>
+
+            <div>
+                <input type="text" id="bio" matInput formControlName="bio" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.bio.errors }"
+                    [ngClass]="{ 'is-invalid': submitted && f.bio.errors }" placeholder="Tell us about yourself .." />
+                <div *ngIf="submitted && f.bio.errors" class="invalid-feedback">
+                    <div *ngIf="f.bio.errors.required">Bio is required</div>
+                </div>
             </div>
 
 
