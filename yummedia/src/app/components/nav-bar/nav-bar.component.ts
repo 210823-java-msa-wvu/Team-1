@@ -1,7 +1,9 @@
+import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { userInfo } from 'os';
 import { User } from '../../models/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,9 +13,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class NavBarComponent implements OnInit {
 
   public user: User;
+  public userService: UserService;
   
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService, private uService: UserService) {
     this.user = authenticationService.currentUserValue;
+    this.userService = uService;
   }
 
   ngOnInit(): void {
@@ -23,8 +27,15 @@ export class NavBarComponent implements OnInit {
 
   }
 
-  public editProfile() {
-
+  public editProfile(): void {
+    this.userService.updateUser(this.user).subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   public openModal() {
