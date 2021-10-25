@@ -23,6 +23,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import {Component, Inject} from '@angular/core';
 import { MatDialogModule} from '@angular/material/dialog';
+import { AddPostComponent } from './components/add-post/add-post.component';
 // import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatDialogModule} from '@angular/material/dialog';
     AdminComponent,
     HomeComponent,
     CommentsDetailComponent,
-    RegistrationComponent, 
+    RegistrationComponent,
+    AddPostComponent,
     
   ],
   entryComponents:[

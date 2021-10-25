@@ -1,13 +1,26 @@
 <h2>Home</h2>
 
 <h5>Welcome to CookBook, {{currentUser.first_name}} {{ currentUser.last_name }} !</h5>
-<p>Current UserID: {{ currentUser.id }}</p>
+<!-- <p>Current UserID: {{ currentUser.id }}</p> -->
+
+<!--  *ngIf = "makePost"  -->
+
+
+<nav>
+    <button routerLink = "/post/addPost">Make a Post</button>
+</nav>
+
+
+<router-outlet></router-outlet>
+
 
 <h3>Posts</h3>
 
+
+<!-- this is the card that shows the data for all posts-->
 <mat-card *ngFor = "let p of post" class="post-card">
     <mat-card-header>
-        <mat-card-title> <!-- {{ p.description }} --> FILLER TITLE </mat-card-title>
+        <mat-card-title> <!-- {{ p.title }} --> FILLER TITLE </mat-card-title>
     </mat-card-header>
 
     <mat-card-header>
