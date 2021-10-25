@@ -28,6 +28,9 @@ public class Users {
     private String password;
 
     @Column
+    private String bio;
+
+    @Column
     private Boolean is_professional;
 
     @Column
@@ -50,7 +53,7 @@ public class Users {
     public Users() {
     }
 
-    public Users(Integer id, String first_name, String last_name, String email, String username, String password,
+    public Users(Integer id, String first_name, String last_name, String email, String username, String password, String bio,
                  Boolean is_professional, Boolean is_admin, Boolean is_suspended, Boolean is_flagged,
                  Integer followers, Integer following) {
         this.id = id;
@@ -59,6 +62,7 @@ public class Users {
         this.email = email;
         this.username = username;
         this.password = password;
+        this.bio = bio;
         this.is_professional = is_professional;
         this.is_admin = is_admin;
         this.is_suspended = is_suspended;
@@ -117,6 +121,14 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public Boolean getIs_professional() {
@@ -179,6 +191,7 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", bio=" + bio +
                 ", is_professional=" + is_professional +
                 ", is_admin=" + is_admin +
                 ", is_suspended=" + is_suspended +
