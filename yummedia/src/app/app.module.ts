@@ -23,6 +23,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import {Component, Inject} from '@angular/core';
 import { MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
+
 // import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @NgModule({
@@ -51,11 +53,11 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatSliderModule,
     MatDialogModule,
-    
-
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    MatFormFieldModule,
+ 
     
     ReactiveFormsModule
   ],

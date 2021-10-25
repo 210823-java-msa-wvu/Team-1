@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   returnUrl : string | any;
   error : string | any;
   success: string | any;
+  hide: true | any;
   
 
   constructor(
