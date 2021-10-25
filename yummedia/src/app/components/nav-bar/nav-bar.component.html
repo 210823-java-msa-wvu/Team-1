@@ -1,0 +1,59 @@
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="flex-grow-1">
+            <a aria-label="Home" class="logo">
+                <span class="yummedia-text">
+                    Yum Media
+                </span>
+            </a>
+        </div>
+        <div class="flex-grow-1 float-right">
+            <div>
+                <a class="float-right edit mr-2" (click)="onOpenModal(null)">Edit Profile</a>
+                <a routerLink="" class="float-right logout mr-2">Logout</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">First Name</label>
+                        <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Last Name</label>
+                        <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Username</label>
+                        <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Password</label>
+                        <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                        <button (click)="editProfile(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
