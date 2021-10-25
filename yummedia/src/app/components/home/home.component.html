@@ -17,14 +17,28 @@
             <div class="user-content">
                 <p> <b>About me:</b> {{ currentUser.bio}}</p>
             </div>
+
+        <!-- make a post button here -->
+
+
+            <br><br>
+            
+            <div>
+                <nav>
+                    <button routerLink = "/post/addPost">Make a Post</button>
+                </nav>
+            </div>
+            
+            <router-outlet></router-outlet>
         </div>
+
+        
 
         <div class="post-content">
             <div class="post-content-title"> <h1>Checkout the news feed</h1></div>
-            <mat-card *ngFor="let p of post" class="post-card">
+            <mat-card *ngFor = "let p of post" class="post-card">
                 <mat-card-header>
-                    <mat-card-title>
-                        <!-- {{ p.description }} --> FILLER TITLE </mat-card-title>
+                    <mat-card-title> <!-- {{ p.title }} --> FILLER TITLE </mat-card-title>
                 </mat-card-header>
             
                 <mat-card-header>
@@ -61,77 +75,31 @@
                 <mat-card-actions>
                     <div class="button">
                         <div class="edit">
+                            <!-- <button mat-button color="primary" >
+                                <a routerLink="/post/findposts" class="btn btn-link"></a>details
+                            </button>  -->
                             <button > <a routerLink="/post/findposts/{{p.post_id}}" class="btn btn-link">Details</a></button>
             
                         </div>
                     </div>
             
-                </mat-card-actions> 
+                </mat-card-actions>
             
             </mat-card>
-            
+
+
         </div>
 
 
 
     </div>
 
+    
+
+
 </div>
-
-
-<!-- <h3>Posts</h3>
-
-<mat-card *ngFor="let p of post" class="post-card">
-    <mat-card-header>
-        <mat-card-title>
-           
-    </mat-card-header>
-
-    <mat-card-header>
-        <b>Post ID: </b> {{ p.post_id }}
-    </mat-card-header>
-
-    <mat-card-header>
-        <b>User ID: </b> {{ p.user_id }}
-    </mat-card-header>
-
-    <mat-card-content>
-        <p>
-            <b>Description: </b> {{ p.description }}
-        </p>
-    </mat-card-content>
-
-    <mat-card-content>
-        <p>
-            <b>Ingredients: </b> {{ p.ingredients }}
-        </p>
-    </mat-card-content>
-
-    <mat-card-content>
-        <p>
-            <b>Image: </b> {{ p.img_url }}
-        </p>
-    </mat-card-content>
-
-    <mat-card-content>
-        <p>
-            <b>Likes: </b> {{ p.likes }}
-        </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <div class="button">
-            <div class="edit">
-                <!-- <button mat-button color="primary" >
-                    <a routerLink="/post/findposts" class="btn btn-link"></a>details
-                </button>  -->
-                <!-- <button > <a routerLink="/post/findposts/{{p.post_id}}" class="btn btn-link">Details</a></button>
-
-            </div>
-        </div>
-
-    </mat-card-actions>
-
-</mat-card> --> -->
+<!-- this is the card that shows the data for all posts-->
+ 
 
 <!-- 
 <mat-card *ngFor="let p of post" class="review-card">
