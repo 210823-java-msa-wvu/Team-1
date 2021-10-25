@@ -4,6 +4,13 @@
     margin-bottom: 10px;
     padding-bottom: 10px ;
 }
+.comment-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-bottom: 10px ;
+}
+
 
 .post-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
