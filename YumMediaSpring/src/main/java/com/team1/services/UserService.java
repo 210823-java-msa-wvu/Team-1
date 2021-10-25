@@ -31,6 +31,10 @@ public class UserService {
         return usersRepo.findById(user_id).orElse(null);
     }
 
+//    public Users getByUsername(String username){
+//        return usersRepo.
+//    }
+
     // UPDATE
     public void updateUser(Users user){
         usersRepo.save(user);

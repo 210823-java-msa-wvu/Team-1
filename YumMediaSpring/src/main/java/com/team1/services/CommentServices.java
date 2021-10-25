@@ -1,6 +1,8 @@
 package com.team1.services;
 
 import com.team1.models.Comments;
+import com.team1.models.Posts;
+import com.team1.models.Reviews;
 import com.team1.repositories.CommentsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,13 @@ public class CommentServices {
         return commentRepository.findAll();
     }
     //byid
+
+    public List<Comments> getAllCommentsPosts(Posts post){
+//        Posts post = postRepo.findById(post).get();
+        return commentRepository.findByPost(post);
+
+    }
+
     public Comments findComment(Integer comment_id){
         return commentRepository.findById(comment_id).orElse(null);
     }

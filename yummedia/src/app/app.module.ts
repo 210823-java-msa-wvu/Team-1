@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
@@ -9,10 +9,22 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CommentsDetailComponent } from './components/comment-detail/comment-detail.component';
+import { RegistrationComponent } from './components/registration/registration/registration.component';
+
+import { MatSliderModule } from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import {Component, Inject} from '@angular/core';
+import { MatDialogModule} from '@angular/material/dialog';
+// import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,15 +36,36 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     LogoutComponent,
     AdminComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    CommentsDetailComponent,
+    RegistrationComponent, 
+    
+  ],
+  entryComponents:[
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    MatSliderModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSliderModule,
+    MatDialogModule,
+    
+
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true}
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

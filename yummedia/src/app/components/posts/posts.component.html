@@ -9,3 +9,36 @@
 </ul>
 
 <!-- <p>{{ post.description }}</p> -->
+
+
+
+<!-- this is the card that shows the data for all posts-->
+<mat-card *ngFor="let p of post" class="post-card">
+    <mat-card-header>
+
+        <mat-card-title>{{p.post_id}}</mat-card-title>
+
+    </mat-card-header>
+    <b>Description:</b> {{ p.description }}
+    
+    <mat-card-content>
+        <p>
+            <b>ingredients: </b>{{ p.ingredients}}
+        </p>
+    </mat-card-content>
+    <mat-card-content>
+        <p>
+            <b>Likes: </b>{{ p.likes}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit"><button   mat-button color="primary">edit</button> </div>
+            <div class="delete">
+                <button mat-button color="warn">delete</button>
+            </div>
+
+        </div>
+
+    </mat-card-actions>
+</mat-card>

@@ -1,9 +1,9 @@
 export interface Post {
-    postId : number;
-    userId : number;
+    post_id : number;
+    user_id : number;
     description: string;
     ingredients : string;
-    imgUrl : string;
+    img_url : string;
     likes : number;
     flag : boolean;
     

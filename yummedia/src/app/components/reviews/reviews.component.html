@@ -3,14 +3,92 @@
 
 <h2>Reviews</h2>
 <ul>
-    <li *ngFor = "let r of reviews">
+    <li *ngFor="let r of reviews">
         <span>{{ r.review_id}} </span>
         <span>{{ r.review }} </span>
         <span>{{ r.rating }} </span>
+        <!-- <span>{{ r.$post.description }} </span> -->
         <!-- <span>{{ r.user.username}} </span>
         <span>{{ r.post.post_id}} </span> -->
-        
-        
+
+
     </li>
 
 </ul>
+
+
+<!-- <div *ngFor = "let r of reviews" class="container">
+<div class="review container"> 
+    <div class="review_id"> Review id: {{ r.review_id}} </div>
+    <div class="rating"> Rating: {{ r.rating }}</div>
+    <div class="review">Review: {{ r.review }}
+
+    </div>
+</div>
+</div> -->
+
+
+<!-- this is the card that shows the data for the review-->
+<mat-card *ngFor="let r of reviews" class="review-card">
+    <mat-card-header>
+
+        <mat-card-title>{{r.review_id}}</mat-card-title>
+
+    </mat-card-header>
+    <b>Rating:</b> {{ r.rating }}
+    <mat-card-content>
+        <p>
+            <b>Review: </b>{{ r.review }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit"><button  (click)="onOpenDialogClick()" mat-button color="primary">edit</button> <app-reviews> </app-reviews></div>
+            <div class="delete">
+                <button mat-button color="warn">delete</button>
+            </div>
+
+        </div>
+
+    </mat-card-actions>
+</mat-card>
+
+<!-- <div class="main-container">
+    <div class="card">
+        <form [formGroup]="reviewForm">
+            <div class="form-group">
+                <textarea class="form-control" [formControl]="review" placeholder="add review">
+
+                </textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-warn">add review</button>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<!-- Edit -->
+
+
+
+<form >
+    <div class="form-group">
+        <label for="name">Review Id</label>
+        <input type="number" name="review" class="form-control" id="review_id" aria-describedby="review" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="name">Review</label>
+        <input type="text" name="name" class="form-control" id="review" aria-describedby="review" placeholder="review">
+    </div>
+    
+
+    <div class="form-group">
+        <label for="name">Rating</label>
+        <input type="number" name="rating" class="form-control" id="rating" placeholder="rating">
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+        <button  click="onUpdateReview">update</button>
+    </div>
+</form>

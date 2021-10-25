@@ -1,1 +1,25 @@
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <br>
+        <a *ngIf="!currentUser" class="nav-item nav-link" routerLink="/login">Login</a>
+        <br>
+        <a *ngIf="!currentUser" class="nav-item nav-link" routerLink="/registration">Register</a>
+    </div>
+</nav>
+
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <!-- <a class="nav-item nav-link" routerLink="/">Home</a> -->
+        <button class="nav-item nav-link" (click)="logout()" >Logout</button>
+        <!-- <a class="nav-item nav-link" (click)="logout()">Logout</a> -->
+    </div>
+</nav>
+
+
 <router-outlet></router-outlet>
+
+
+<!-- <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
