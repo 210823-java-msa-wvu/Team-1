@@ -6,14 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
-import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first, min } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from 'src/app/models/user';
-import { async } from '@angular/core/testing';
-import { ThisReceiver } from '@angular/compiler';
+
 
 
 
@@ -31,17 +29,7 @@ export class PostDetailComponent implements OnInit {
   loading = false;
   currentUser : User;
 
-  
 
-  postJSON: Post =  {
-    post_id: 2,
-    user_id: 1,
-    description: "post2",
-    ingredients: "bread",
-    img_url: "slkdfjs;ljf;d.com",
-    likes: 1,
-    flag: false
-  }
   postJSON2: Post =  {
     "post_id": 35,
     "user_id": 1,
@@ -133,19 +121,6 @@ export class PostDetailComponent implements OnInit {
 }
 
 
-  // returnPost() {
-  //   this.userService.getUser()
-  //     .map((user: Array<any>) => {
-  //       let result:Array<User> = [];
-  //       if (user) {
-  //         user.forEach((erg) => {
-  //           result.push(new User(erg.nickname, erg.id, erg.name, erg.nachname, erg.pictURL, erg.city ));
-  //         });
-  //       }
-  //       return result; // <<<=== missing return
-  //     })
-  //     .subscribe(user => this.user = user);
-  // }
   getPost(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.postService.getPost(id)
@@ -158,19 +133,6 @@ export class PostDetailComponent implements OnInit {
     
     
   }
-  // getPostId(): Observable<Post> {
-  //   const id = Number(this.route.snapshot.paramMap.get('id'));
-  //   var postId: number;
-  //   this.postService.getPost(id)
-  //     .subscribe(
-  //       post => {
-  //         (this.post = post);
-  //         postId = (this.post=post).post_id;
-  //       },
-  //       );
-  //   return postId;
-  // }
-
 
   getCommentsPost(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
