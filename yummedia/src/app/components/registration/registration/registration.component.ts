@@ -35,7 +35,8 @@ export class RegistrationComponent implements OnInit {
       last_name: ['', Validators.required],
       email: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      bio: ['', Validators.required]
 
     });
 
@@ -53,6 +54,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.loading = true;
+    console.log("NEW USER: " + this.registerForm.value);
     this.userService.addUser(this.registerForm.value)
         .pipe(first())
         .subscribe(

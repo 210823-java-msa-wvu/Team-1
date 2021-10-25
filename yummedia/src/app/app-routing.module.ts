@@ -9,6 +9,7 @@ import { RegistrationComponent } from './components/registration/registration/re
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { AddPostComponent } from './components/add-post/add-post.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate: [AuthGuard]},
@@ -20,6 +21,9 @@ const routes: Routes = [
 
   {path: 'login', component:LoginComponent},
   {path: 'registration', component:RegistrationComponent},
+  {path: 'post/findposts/:id', component: PostDetailComponent},
+  {path: 'comments/post/:id', component: PostDetailComponent},
+  {path: 'comments', component: PostDetailComponent},
 
   // otherwise, redirect to home
   {path: '**', redirectTo: ''}

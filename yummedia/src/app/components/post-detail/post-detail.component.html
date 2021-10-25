@@ -1,0 +1,95 @@
+
+<style>
+    .comment {
+      width: 40%;
+      height: 100px;
+      padding: 10px;
+      padding-left: 10px;
+    
+    }
+    div.a {
+      text-align: center;
+  }
+  </style>
+
+
+<mat-card *ngIf = "post" class="post-card" >
+    <mat-card-header>
+
+        <mat-card-title> {{post.post_id}}</mat-card-title>
+
+    </mat-card-header>
+    <!-- <b>Rating:</b> {{ r.rating }} -->
+    <mat-card-content>
+        <p>
+            <b>Post: </b>{{ post.description }}
+            <b>Ingredients: </b> {{post.ingredients}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit"><button mat-button color="primary">edit</button> </div>
+            <div class="delete">
+                <button mat-button color="warn">delete</button>
+            </div>
+
+        </div>
+
+    </mat-card-actions>
+
+
+
+
+    
+</mat-card>
+<div class = "a"><h2>Comments</h2></div>
+
+<!-- <ul>
+    <li *ngFor = "let comment of commentsPost">
+        <span>{{ comment.commentDescription }} </span>
+    </li>
+
+</ul> -->
+
+<mat-card *ngFor="let c of commentsPost" class="comment-card">
+    <mat-card-header>
+
+        <mat-card-title>{{c.commentId}}</mat-card-title>
+
+    </mat-card-header>
+    <!-- <b>Rating:</b> {{ r.rating }} -->
+    <mat-card-content>
+        <p>
+            <b>Comment: </b>{{ c.commentDescription }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit"><button mat-button color="primary">edit</button> </div>
+            <div class="delete">
+                <button mat-button color="warn">delete</button>
+            </div>
+
+        </div>
+
+    </mat-card-actions>
+</mat-card>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+        <label for="commentDescription">Add New Comment: </label>
+        <br>
+        <textarea class = "comment" formControlName="commentDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.commentDescription.errors }"></textarea>
+        <!-- <input type="text" class = "comment" formControlName="commentDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.commentDescription.errors }" /> -->
+        <br>
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Add Comment
+        </button>
+    </div>
+
+    <!-- <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Add Comment
+        </button>
+    </div> -->
+</form>

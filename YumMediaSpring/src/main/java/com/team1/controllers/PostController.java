@@ -41,7 +41,9 @@ public class PostController {
 
         @GetMapping(path ="/findposts/{post_id}")
         public Posts getPost(@PathVariable("post_id") Integer id){
-            return postRepo.getById(id);
+            return postRepo.findById(id).orElse(null);
+
+            //return postRepo.getById(id);
         }
 
         //UPDATE - updateposts. update a post

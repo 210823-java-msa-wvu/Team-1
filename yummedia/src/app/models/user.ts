@@ -5,6 +5,7 @@ export interface User {
     email: string;
     username: string;
     password: string;
+    bio: string;
     is_professional: boolean;
     is_admin: boolean;
     is_suspended: boolean;

@@ -1,6 +1,6 @@
-<div *ngIf="error" class="alert alert-danger">{{error}}</div>
-<h2>Register</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<!-- <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
+<!-- <h2>Register</h2> -->
+<!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="first_name">First Name</label>
         <input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" />
@@ -35,7 +35,7 @@
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">Password is Required</div>
             <!-- <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div> -->
-        </div>
+<!-- </div>
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
@@ -44,4 +44,202 @@
         </button>
         <a routerLink="/login" class="btn btn-link">Cancel</a>
     </div>
-</form>
+</form> -->
+
+
+
+<!-- <div class="medium-list">
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div class="list-viewer-wrapper">
+        <div class="title"> Register</div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example">
+            <div class="form-container">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input id="first_name" matInput formControlName="first_name"
+                        [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="Enter first name..">
+                </mat-form-field>
+                <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.first_name.errors.required">First Name is Required</div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="last_name" matInput formControlName="last_name"
+                        [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }" placeholder="Enter last name..">
+                </mat-form-field>
+                <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.last_name.errors.required">Last Name is Required</div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="email" matInput formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                        [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="Enter email..">
+                </mat-form-field>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is Required</div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="username" matInput formControlName="username"
+                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Enter username..">
+                </mat-form-field>
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is Required</div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="password" matInput formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter password..">
+
+                </mat-form-field>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is Required</div>
+                    <!-- <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div> -->
+<!-- </div>
+            </div>
+
+
+            <button type="submit" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Register
+            </button>
+            <button> <a routerLink="/login" class="btn btn-link">Cancel</a></button>
+
+
+        </form>
+    </div> -->
+<!-- </div> -->
+
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div id="login-box">
+
+    <div class="container">
+        <h1> Register</h1>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example">
+
+            <div>
+                <input type="text" id="first_name" matInput formControlName="first_name"
+                    [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="Enter first name .." />
+                <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.first_name.errors.required">First Name is Required</div>
+                </div>
+
+            </div>
+
+            <div>
+                <input type="text" id="last_name" matInput formControlName="last_name"
+                    [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }" placeholder="Enter last name .." />
+                <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.last_name.errors.required">Last Name is Required</div>
+                </div>
+            </div>
+
+            <div>
+                <input type="text" id="email" matInput formControlName="email" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                    [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="Enter email .." />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is Required</div>
+                </div>
+            </div>
+
+            <div >
+                <input type="text" id="username" matInput formControlName="username"
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Enter username .." />
+                <div  *ngIf="submitted && f.username.errors" class="invalid-feedback" style="color:red;">
+                    <div class="nvalid-feedback" *ngIf="f.username.errors.required" style="color:red;">Username is Required</div>
+                </div>
+
+            </div>
+
+            <div >
+                <input type="password"  id="password" matInput formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter password .." />
+                <div   *ngIf="submitted && f.password.errors" class="invalid-feedback"> </div>
+                <!-- <div *ngIf="f.password.errors.required">Password is Required</div> -->
+
+            </div>
+
+            <div>
+                <input type="text" id="bio" matInput formControlName="bio" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.bio.errors }"
+                    [ngClass]="{ 'is-invalid': submitted && f.bio.errors }" placeholder="Tell us about yourself .." />
+                <div *ngIf="submitted && f.bio.errors" class="invalid-feedback">
+                    <div *ngIf="f.bio.errors.required">Bio is required</div>
+                </div>
+            </div>
+
+
+
+
+            <button type="submit" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Register
+            </button>
+            <!-- <button> <a routerLink="/login" class="btn btn-link">Cancel</a></button> -->
+        </form>
+    </div>
+</div>
+
+<!-- <div>
+    <div>
+        <div> Register</div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div>
+                <mat-form-field>
+                    <input id="first_name" matInput
+                    formControlName="first_name"
+                    [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+                    placeholder="Enter first name..">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="last_name" matInput
+                    formControlName="last_name" 
+                    [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
+                    placeholder="Enter last name..">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="username" matInput
+                    formControlName="username" 
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                    placeholder="Enter username..">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="password" matInput
+                    formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" 
+                    placeholder="Enter password..">
+                    
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input id="email" matInput
+                    formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                    [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+                    placeholder="Enter email..">
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+                <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</div> -->
