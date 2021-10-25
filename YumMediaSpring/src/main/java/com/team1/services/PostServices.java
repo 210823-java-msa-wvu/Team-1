@@ -17,6 +17,7 @@ public class PostServices {
     public List<Posts> getAllPosts(){
         return PostRepo.findAll();
     }
+
     //byid
     public Posts getPost(Integer post_id){return PostRepo.findById(post_id).orElse(null);}
 

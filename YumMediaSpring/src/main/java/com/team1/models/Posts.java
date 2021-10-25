@@ -14,6 +14,9 @@ public class Posts {
     private Integer post_id;
 
     @Column
+    private String title;
+
+    @Column
     private Integer user_id;
 
     @Column
@@ -37,8 +40,9 @@ public class Posts {
     public Posts() {}
 
     //All post attributes constructor
-    public Posts(Integer post_id, Integer user_id, String description, String ingredients, String img_url, Integer likes, Boolean flag) {
+    public Posts(Integer post_id, String title, Integer user_id, String description, String ingredients, String img_url, Integer likes, Boolean flag) {
         this.post_id = post_id;
+        this.title = title;
         this.user_id = user_id;
         this.description = description;
         this.ingredients = ingredients;
@@ -46,6 +50,7 @@ public class Posts {
         this.likes = likes;
         this.flag = flag;
     }
+
     //Like a post constructor
     public Posts(Integer post_id, Integer likes) {
         this.post_id = post_id;
@@ -74,6 +79,10 @@ public class Posts {
     public void setPost_id(Integer post_id) {
         this.post_id = post_id;
     }
+
+    public String getTitle() {return title; }
+
+    public void setTitle(String title) {this.title = title; }
 
     public Integer getUser_id() {
         return user_id;
@@ -125,10 +134,13 @@ public class Posts {
 
 
     //ToString() Method
+
+
     @Override
     public String toString() {
-        return "posts{" +
+        return "Posts{" +
                 "post_id=" + post_id +
+                ", title='" + title + '\'' +
                 ", user_id=" + user_id +
                 ", description='" + description + '\'' +
                 ", ingredients='" + ingredients + '\'' +
@@ -137,5 +149,4 @@ public class Posts {
                 ", flag=" + flag +
                 '}';
     }
-
 }

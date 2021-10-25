@@ -1,7 +1,10 @@
 package com.team1.controllers;
 
+import com.team1.models.Comments;
 import com.team1.models.Posts;
+import com.team1.repositories.CommentsRepo;
 import com.team1.repositories.PostRepo;
+import com.team1.services.CommentServices;
 import com.team1.services.PostServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,7 @@ import java.util.List;
 public class PostController {
 
        private PostRepo postRepo; // injected
+       private CommentsRepo commentsRepo;
 
         @Autowired
         public PostController (PostRepo postRepo){
@@ -22,11 +26,10 @@ public class PostController {
 
 
         private PostServices postServices;
-
+        private CommentServices commentServices;
 
 
         //Create: Add a new Posts
-        //
         @PostMapping(path ="/addPost", consumes = "application/json", produces = "application/json")
         public void addPost(@RequestBody Posts post){
 
@@ -43,6 +46,9 @@ public class PostController {
         public Posts getPost(@PathVariable("post_id") Integer id){
             return postRepo.getById(id);
         }
+
+//        @GetMapping(path="/findposts/comments")
+//        public List<Comments> getAllComments(@PathVariable("post_id") Integer id){return CommentsRepo.findByPost(post);}         }
 
         //UPDATE - updateposts. update a post
         @PutMapping(path ="/update/{user_id}")

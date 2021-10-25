@@ -11,6 +11,5 @@ import java.util.List;
 public interface PostRepo extends JpaRepository<Posts, Integer> {
 
 
-
     //test
 }
