@@ -44,7 +44,11 @@
     <mat-card-actions>
         <div class="button">
             <div class="edit">
-                <button mat-button color="primary" >details</button> 
+                <!-- <button mat-button color="primary" >
+                    <a routerLink="/post/findposts" class="btn btn-link"></a>details
+                </button>  -->
+                <button > <a routerLink="/post/findposts/{{p.post_id}}" class="btn btn-link">Details</a></button>
+
             </div>
         </div>
 

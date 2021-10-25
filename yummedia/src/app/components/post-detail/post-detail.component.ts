@@ -115,15 +115,6 @@ export class PostDetailComponent implements OnInit {
     }
     this.loading = true;
 
-
-
-    // this.registerForm = this.formBuilder.group( {
-    //   user: this.currentUser,
-    //   post: ["", Validators.required],
-    //   commentDescription: ["", Validators.required]
-    // })
-
-
     console.log("After 33333333 " + this.postJSON2.post_id);
 
 
@@ -137,6 +128,8 @@ export class PostDetailComponent implements OnInit {
                 this.error = error;
                 this.loading = false;
             });
+    window.location.reload();
+
 }
 
 
