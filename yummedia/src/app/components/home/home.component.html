@@ -38,14 +38,21 @@
                 <h1>Checkout the news feed</h1>
             </div>
             <mat-card *ngFor="let p of post" class="post-card">
+                <!-- <mat-card-header>
+                    <mat-card-title> <img [src]="img_url">  </mat-card-title>
+                </mat-card-header> -->
+                <mat-card-header>
+                    <mat-card-title> <img src = {{p.img_url}}>  </mat-card-title>
+                </mat-card-header>
+
                 
                 <mat-card-header>
-                    <mat-card-title> <!-- {{ p.title }} --> FILLER TITLE </mat-card-title>
+                    <mat-card-title> {{ p.title }}  </mat-card-title>
                 </mat-card-header>
             
-                <mat-card-header>
+                <!-- <mat-card-header>
                     <b>Post ID: </b> {{ p.post_id }}
-                </mat-card-header>
+                </mat-card-header> -->
 
                 <mat-card-header>
                     <b>User ID: </b> {{ p.user_id }}
@@ -63,11 +70,11 @@
                     </p>
                 </mat-card-content>
 
-                <mat-card-content>
+                <!-- <mat-card-content>
                     <p>
-                        <b>Image: </b> {{ p.img_url }}
+                        <img [src]="img_url">
                     </p>
-                </mat-card-content>
+                </mat-card-content> -->
 
                 <mat-card-content>
                     <p>
@@ -112,7 +119,7 @@
                 </button>  
  <button > <a  routerLink="/post/findposts/{{p.post_id}}" class="btn btn-link">Details</a></button>
 
-    
+     
 
 
 </mat-card>  --> 

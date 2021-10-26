@@ -19,6 +19,7 @@ import { from } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   currentUser: any;
+  img_url : string ='';
 
   // public review: Review[] | any;
   public post : Post[] | any;
