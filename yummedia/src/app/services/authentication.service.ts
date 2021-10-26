@@ -15,11 +15,12 @@ export class AuthenticationService {
   private springServerUrl= environment.baseUrl;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || 'null'));
     this.currentUser = this.currentUserSubject.asObservable();
-
+    console.log(this.currentUserSubject);
    }
 
    public get currentUserValue(){
@@ -34,6 +35,7 @@ export class AuthenticationService {
        localStorage.setItem('currentUser', JSON.stringify(user));
        this.currentUserSubject.next(user);
        console.log(`authentication.service.ts  -  logging user: `, user);
+       this.loggedIn.next(true);
        return user;
      }));
      
@@ -43,7 +45,11 @@ export class AuthenticationService {
    logout(){
      // remove user from local storage and set current user to null
      localStorage.removeItem("currentUser");
+     this.loggedIn.next(false);
      this.currentUserSubject.next(null);
    }
 
+   get isLoggedIn() {
+     return this.loggedIn.asObservable();
+   }
 }

@@ -8,8 +8,10 @@
         </div>
         <div class="flex-grow-1 float-right">
             <div>
-                <a (click)="logOut()" class="float-right logout mr-2">Logout</a>
-                <a class="float-right edit mr-2" (click)="openModal()">Edit Profile</a>
+                <a *ngIf="user" (click)="logOut()" class="float-right logout mr-2">Logout</a>
+                <a *ngIf="!user" class="float-right register mr-2 nav-link" (click)="toRegister()">Register</a>
+                <a *ngIf="!user" class="float-right login nav-link" (click)="toLogIn()">Login</a>
+                <a *ngIf="user" class="float-right edit mr-2" (click)="openModal()">Edit Profile</a>
             </div>
         </div>
     </nav>
