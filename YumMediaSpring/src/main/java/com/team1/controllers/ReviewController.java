@@ -35,8 +35,12 @@ public class ReviewController {
     //get all
     @GetMapping
     public List<Reviews> getAllReviews(){
+        List<Reviews> reviewList = reviewService.getAllReviews();
 //        System.out.println("getting reviews");
-        return reviewService.getAllReviews();
+        for(int i = 0; i < reviewList.size(); i++){
+            System.out.println(reviewList.get(i));
+        }
+        return reviewList;
     }
     //get all by post id
     @GetMapping(path="/post/{post_id}")

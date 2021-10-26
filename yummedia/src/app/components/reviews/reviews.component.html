@@ -1,4 +1,4 @@
-<p>reviews works!</p>
+<!-- <p>reviews works!</p>
 
 
 <h2>Reviews</h2>
@@ -6,15 +6,15 @@
     <li *ngFor="let r of reviews">
         <span>{{ r.review_id}} </span>
         <span>{{ r.review }} </span>
-        <span>{{ r.rating }} </span>
+        <span>{{ r.rating }} </span> -->
         <!-- <span>{{ r.$post.description }} </span> -->
         <!-- <span>{{ r.user.username}} </span>
         <span>{{ r.post.post_id}} </span> -->
 
 
-    </li>
+    <!-- </li>
 
-</ul>
+</ul> -->
 
 
 <!-- <div *ngFor = "let r of reviews" class="container">
@@ -28,8 +28,10 @@
 </div> -->
 
 
+
+<h2> Check out the trending reviews</h2>
 <!-- this is the card that shows the data for the review-->
-<mat-card *ngFor="let r of reviews" class="review-card">
+<mat-card *ngFor="let r of reviews" class="review-card" >
     <mat-card-header>
 
         <mat-card-title>{{r.review_id}}</mat-card-title>
@@ -42,13 +44,13 @@
         </p>
     </mat-card-content>
    
-        <div class="button">
+        <!-- <div class="button">
             <div class="edit"><button  (click)="onOpenDialogClick()" mat-button color="primary">edit</button> <app-reviews> </app-reviews></div>
             <div class="delete">
                 <button mat-button color="warn">delete</button>
             </div>
 
-        </div>
+        </div> -->
 
     
 </mat-card>
@@ -72,7 +74,7 @@
 
 
 
-<form >
+<!-- <form >
     <div class="form-group">
         <label for="name">Review Id</label>
         <input type="number" name="review" class="form-control" id="review_id" aria-describedby="review" placeholder="Name">
@@ -86,9 +88,9 @@
     <div class="form-group">
         <label for="name">Rating</label>
         <input type="number" name="rating" class="form-control" id="rating" placeholder="rating">
-    </div>
-    <div class="modal-footer">
+    </div> -->
+    <!-- <div class="modal-footer">
         <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
         <button  click="onUpdateReview">update</button>
-    </div>
-</form>
+    </div> -->
+<!-- </form> -->
