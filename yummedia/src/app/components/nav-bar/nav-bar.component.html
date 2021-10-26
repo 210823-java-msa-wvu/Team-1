@@ -19,13 +19,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Profile</h5>
+                <h2 class="modal-title" id="updateEmployeeModalLabel">Edit Profile</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form #editForm="ngForm">
+                    <h5 id="directions">Please refresh to see changes</h5>
                     <input type="hidden" ngModel="{{user?.id}}" name="id" class="form-control" id="id" placeholder="Email">
                     <div class="form-group">
                         <label for="name">First Name</label>
