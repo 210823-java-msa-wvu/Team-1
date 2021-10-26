@@ -5,8 +5,10 @@ import com.team1.repositories.PostRepo;
 import com.team1.services.PostServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @RestController
@@ -14,22 +16,20 @@ import java.util.List;
 public class PostController {
 
        private PostRepo postRepo; // injected
-
-        @Autowired
-        public PostController (PostRepo postRepo){
-            this.postRepo = postRepo;
-        }
-
-
         private PostServices postServices;
 
-
+        @Autowired
+        public PostController (PostRepo postRepo, PostServices postServices){
+            this.postRepo = postRepo;
+            this.postServices = postServices;
+        }
 
         //Create: Add a new Posts
         //
         @PostMapping(path ="/addPost", consumes = "application/json", produces = "application/json")
         public void addPost(@RequestBody Posts post){
 
+            System.out.println("MY POST : " + post);
             postRepo.save(post);
         }
 
@@ -47,11 +47,24 @@ public class PostController {
         }
 
         //UPDATE - updateposts. update a post
-        @PutMapping(path ="/update/{user_id}")
-        public void updatePost (@PathVariable Integer post_id){
-            Posts p = postServices.getPost(post_id);
-            postRepo.save(p);
+        @PutMapping(path ="/update/{post_id}")
+        public void updatePost ( @PathVariable Integer post_id, @RequestBody Posts post){
+            System.out.println("MY ID: " + post_id);
+
+            System.out.println("POST: " + post.getPost_id());
+            System.out.println("POST" + post);
+
+
+            if (Objects.equals(post_id, post.getPost_id())) {
+                postServices.updatePost(post);
+            }
         }
+//    @PutMapping(path="/{comment_id}")
+//    public void updateComment(@PathVariable Integer comment_id, @RequestBody Comments comment) {
+//        if (Objects.equals(comment_id, comment.getCommentId())) {
+//            commentService.updateComment(comment);// this save method is coming from the JpaRepository -> it is like Hibernate's saveOrUpdate();
+//        }
+//    }
 
         //DELETE - deletePost. delete a Post.
         @DeleteMapping(path ="/deletePost/{post_id}")

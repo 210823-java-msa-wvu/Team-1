@@ -27,6 +27,8 @@ public class PostServices {
 
     //update
     public void updatePost(Posts post){
+        System.out.println("SERVICE:" +  post);
+
         PostRepo.save(post);
     }
 

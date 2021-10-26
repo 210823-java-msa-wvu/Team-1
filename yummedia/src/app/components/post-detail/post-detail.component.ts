@@ -23,6 +23,7 @@ import { User } from 'src/app/models/user';
 
 export class PostDetailComponent implements OnInit {
 
+  clicked = false;
   registerForm: FormGroup | any;
   submitted = false;
   error: string | any;
@@ -36,7 +37,7 @@ export class PostDetailComponent implements OnInit {
     "description": "post2",
     "ingredients": "bread",
     "img_url": "slkdfjs;ljf;d.com",
-    "likes": 1,
+    "likes": 27,
     "flag": false
   }
 
@@ -71,6 +72,12 @@ export class PostDetailComponent implements OnInit {
           // console.log((this.post=post).post_id);
           console.log("CORRECT POST ID " + (this.post=post).post_id);
           this.postJSON2.post_id = (this.post=post).post_id;
+          this.postJSON2.user_id = (this.post=post).user_id;
+          this.postJSON2.description = (this.post=post).description;
+          this.postJSON2.ingredients = (this.post=post).ingredients;
+          this.postJSON2.img_url = (this.post=post).img_url;
+          this.postJSON2.likes = (this.post=post).likes;
+          this.postJSON2.flag = (this.post=post).flag;
           console.log("After2222 " + this.postJSON2.post_id);
           
         },
@@ -78,18 +85,11 @@ export class PostDetailComponent implements OnInit {
     console.log("After 1111111 " + this.postJSON2.post_id);
 
     this.getCommentsPost();
-
-
-
-
     this.registerForm = this.formBuilder.group( {
       user: this.currentUser,
       post: this.postJSON2,
       commentDescription: ["", Validators.required]
     })
-
-    
-  
   }
 
 
@@ -146,4 +146,22 @@ export class PostDetailComponent implements OnInit {
       }
     )
   }
+
+
+  
+
+  likePost(){
+    this.postJSON2.likes= this.postJSON2.likes + 1;
+    this.postService.updatePost(this.postJSON2, this.postJSON2.post_id)
+    .pipe(first())
+    .subscribe(
+        data => {
+            // this.router.navigate(['/login'], { queryParams: { registered: true }});
+        },
+        error => {
+            this.error = error;
+            this.loading = false;
+        });    
+  }
+
 }
