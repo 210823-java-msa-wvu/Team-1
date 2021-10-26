@@ -34,6 +34,7 @@ export class PostDetailComponent implements OnInit {
   postJSON2: Post =  {
     "post_id": 35,
     "user_id": 1,
+    "title": " ",
     "description": "post2",
     "ingredients": "bread",
     "img_url": "slkdfjs;ljf;d.com",
