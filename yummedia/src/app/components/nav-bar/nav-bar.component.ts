@@ -1,8 +1,8 @@
+import { User } from 'src/app/models/user';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { userInfo } from 'os';
-import { User } from '../../models/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -19,7 +19,8 @@ export class NavBarComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private uService: UserService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
     ) {
       this.user = authenticationService.currentUserValue;
       this.userService = uService;
@@ -33,8 +34,9 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(["login"]);
   }
 
-  public editProfile(): void {
-    this.userService.updateUser(this.user).subscribe(
+  public editProfile(u: User): void {
+    console.log(u);
+    this.userService.updateUser(u, u.id).subscribe(
       (response: any) => {
         console.log(response);
       },
@@ -45,7 +47,8 @@ export class NavBarComponent implements OnInit {
   }
 
   public openModal() {
-    const navbar = document.getElementById('navbar');
+    console.log("flag 1");
+    const navbar = document.getElementById('nav-bar');
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
@@ -53,6 +56,7 @@ export class NavBarComponent implements OnInit {
     button.setAttribute('data-target', '#editProfileModal');
     navbar?.appendChild(button);
     button.click();
+    console.log("Opened");
   }
 
 }

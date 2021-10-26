@@ -32,8 +32,9 @@ export class UserService {
   }
 
   // PUT
-  public updateUser(user : any) {
-    return this.http.put(`${this.springServerUrl}/users/update/${user.id}`, user);
+  public updateUser(user : any, id: number) {
+    console.log(user);
+    return this.http.put(`${this.springServerUrl}/users/update/${id}`, user);
   }
 
 
