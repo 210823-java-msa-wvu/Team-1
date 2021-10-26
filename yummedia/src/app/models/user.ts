@@ -12,5 +12,4 @@ export interface User {
     is_flagged: boolean;
     followers: number;
     following: number;
-
 }

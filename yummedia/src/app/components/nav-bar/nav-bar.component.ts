@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -13,8 +14,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class NavBarComponent implements OnInit {
 
-  public user: User;
+  public user: any;
   public userService: UserService;
+  isLoggedIn$: Observable<boolean>;
   
   constructor(
     private authenticationService: AuthenticationService,
@@ -27,11 +29,30 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoggedIn$ = this.authenticationService.isLoggedIn;
   }
 
   public logOut() {
     this.authenticationService.logout();
-    this.router.navigate(["login"]);
+    this.user = null;
+    this.router.navigate(["login"])
+    .then(() => {
+      window.location.reload();
+    });
+  }
+  
+  public toRegister() {
+    this.router.navigate(["registration"])
+    .then(() => {
+      window.location.reload();
+    });
+  }
+
+  public toLogIn() {
+    this.router.navigate(["login"])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
   public editProfile(u: User): void {
