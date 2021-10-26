@@ -1,3 +1,4 @@
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -32,8 +33,10 @@ export class UserService {
   }
 
   // PUT
-  public updateUser(user : any) {
-    return this.http.put(`${this.springServerUrl}/users/update/${user.id}`, user);
+  public updateUser(user : any, id: number) {
+    console.log(user);
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    return this.http.put(`${this.springServerUrl}/users/update/${id}`, user);
   }
 
 
