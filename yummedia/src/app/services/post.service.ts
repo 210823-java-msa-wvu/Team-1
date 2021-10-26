@@ -35,6 +35,10 @@ export class PostService {
     return this.http.post(`${this.springServerUrl}/post/addPost`, post);
   }
 
+  public updatePost(post: any, id: number){
+    return this.http.put(`${this.springServerUrl}/post/update/${id}`, post);
+  }
+
   // DELETE
 
 

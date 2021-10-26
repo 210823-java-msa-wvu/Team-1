@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PostService } from 'src/app/services/post.service';
 // import { PostsComponent } from '../posts/posts.component';
+// import {Review} from'../reviews/reviews.component';
 import { Post } from 'src/app/models/post';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { from } from 'rxjs';
 
 // @NgModule({
 //   declarations: [PostsComponent]
@@ -18,7 +20,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class HomeComponent implements OnInit {
   currentUser: any;
 
-
+  // public review: Review[] | any;
   public post : Post[] | any;
   
   constructor(

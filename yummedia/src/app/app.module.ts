@@ -12,6 +12,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CommentsDetailComponent } from './components/comment-detail/comment-detail.component';
 import { RegistrationComponent } from './components/registration/registration/registration.component';
 
@@ -41,6 +42,7 @@ import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
     LogoutComponent,
     AdminComponent,
     HomeComponent,
+    NavBarComponent,
     CommentsDetailComponent,
     RegistrationComponent,
     AddPostComponent,

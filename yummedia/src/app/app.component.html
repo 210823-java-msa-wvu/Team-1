@@ -1,4 +1,4 @@
-<!-- nav -->
+<!-- nav 
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/">Home</a>
@@ -8,22 +8,21 @@
         <a *ngIf="!currentUser" class="nav-item nav-link" routerLink="/registration">Register</a>
     </div>
 </nav>
+-->
 
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser"> -->
+    <!-- <div class="navbar-nav"> -->
         <!-- <a class="nav-item nav-link" routerLink="/">Home</a> -->
-        <button 
-        style = "color: black;"
-        id = "logout" 
-        class="nav-item nav-link" 
-        (click)="logout()" >Logout</button>
+        <!-- <button class="nav-item nav-link" (click)="logout()" >Logout</button> -->
         <!-- <a class="nav-item nav-link" (click)="logout()">Logout</a> -->
-    </div>
-</nav>
+    <!-- </div> -->
+<!-- </nav> -->
 
-
-<router-outlet></router-outlet>
+<app-nav-bar></app-nav-bar>
+<div id="body">
+    <router-outlet></router-outlet>
+</div>
 
 
 <!-- <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
