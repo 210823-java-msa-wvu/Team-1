@@ -17,6 +17,9 @@ public class Posts {
     private Integer user_id;
 
     @Column
+    private String title;
+
+    @Column
     private String description;
 
     @Column
@@ -37,9 +40,10 @@ public class Posts {
     public Posts() {}
 
     //All post attributes constructor
-    public Posts(Integer post_id, Integer user_id, String description, String ingredients, String img_url, Integer likes, Boolean flag) {
+    public Posts(Integer post_id, Integer user_id, String title, String description, String ingredients, String img_url, Integer likes, Boolean flag) {
         this.post_id = post_id;
         this.user_id = user_id;
+        this.title = title;
         this.description = description;
         this.ingredients = ingredients;
         this.img_url = img_url;
@@ -77,6 +81,14 @@ public class Posts {
 
     public Integer getUser_id() {
         return user_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setUser_id(Integer user_id) {
