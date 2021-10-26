@@ -1,7 +1,11 @@
+import { User } from "./user";
+import { Post } from "./post";
+
+
 export interface Comment{
 
-    commentId: number;
+    comment_id: number;
     commentDescription: string;
-    user: number;
-    post: number;
+    user: User;
+    post: Post;
 }

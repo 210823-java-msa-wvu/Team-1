@@ -3,6 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/app/models/post';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
+
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -10,8 +16,10 @@ import { Post } from 'src/app/models/post';
 })
 export class PostsComponent implements OnInit {
   public post : Post[] | any;
-  
-  constructor(private postService: PostService) { }
+
+  constructor(
+    private postService: PostService,
+    ) { }
 
   ngOnInit(): void {
     this.getPosts();

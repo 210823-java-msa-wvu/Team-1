@@ -20,9 +20,20 @@ export class PostService {
     return this.http.get<Post[]>(`${this.springServerUrl}/post/findposts`)
   }
 
+  /** GET post by id. Will 404 if id not found */
+  getPost(id: number): Observable<Post> {
+    const url = `${this.springServerUrl}/post/findposts/${id}`;
+    return this.http.get<Post>(url)
+  }
+
+
+
   // PUT
 
   // POST
+  public addPost(post: any) {
+    return this.http.post(`${this.springServerUrl}/post/addPost`, post);
+  }
 
   // DELETE
 

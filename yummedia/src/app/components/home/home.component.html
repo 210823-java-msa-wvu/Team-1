@@ -1,36 +1,100 @@
-<h2>Home</h2>
+<div class="home-container">
+    <div class="home-content">
+        <div class="user-home-content">
+            <div class="welcome-content-welcome">
+                <h3>Welcome to CookBook, {{currentUser.first_name}} {{ currentUser.last_name }} !</h3>
+            </div>
+            <div class="user-content">
+                <p><b>User ID:</b> {{ currentUser.id }}</p>
+            </div>
+            <div class="user-content">
+                <p><b>Name:</b> {{ currentUser.first_name}}</p>
+            </div>
+            <div class="user-content">
+                <p><b>Last name:</b> {{ currentUser.last_name}}</p>
+            </div>
+            <div class="user-content">
+                <p> <b>About me:</b> {{ currentUser.bio}}</p>
+            </div>
 
-<h5>Welcome to CookBook, {{currentUser.first_name}} {{ currentUser.last_name }} !</h5>
-<p>Current UserID: {{ currentUser.id }}</p>
+        <!-- make a post button here -->
 
-<h3>Posts</h3>
 
-<mat-card *ngFor = "let p of post" class="post-card">
-    <mat-card-header>
-        <mat-card-title> <!-- {{ p.description }} --> FILLER TITLE </mat-card-title>
-    </mat-card-header>
+            <br><br>
+            
+            <div>
+                <nav>
+                    <button routerLink = "/post/addPost">Make a Post</button>
+                </nav>
+            </div>
+            
+            <router-outlet></router-outlet>
+        </div>
 
-    <mat-card-header>
-        <b>Post ID: </b> {{ p.post_id }}
-    </mat-card-header>
+        
 
-    <mat-card-header>
-        <b>User ID: </b> {{ p.user_id }}
-    </mat-card-header>
+        <div class="post-content">
+            <div class="post-content-title">
+                <h1>Checkout the news feed</h1>
+            </div>
+            <mat-card *ngFor="let p of post" class="post-card">
+                
+                <mat-card-header>
+                    <mat-card-title> <!-- {{ p.title }} --> FILLER TITLE </mat-card-title>
+                </mat-card-header>
+            
+                <mat-card-header>
+                    <b>Post ID: </b> {{ p.post_id }}
+                </mat-card-header>
 
-    <mat-card-content>
-        <p>
-            <b>Description: </b> {{ p.description }}
-        </p>
-    </mat-card-content>
+                <mat-card-header>
+                    <b>User ID: </b> {{ p.user_id }}
+                </mat-card-header>
 
-    <mat-card-content>
-        <p>
-            <b>Ingredients: </b> {{ p.ingredients }}
-        </p>
-    </mat-card-content>
+                <mat-card-content>
+                    <p>
+                        <b>Description: </b> {{ p.description }}
+                    </p>
+                </mat-card-content>
 
-    <mat-card-content>
+                <mat-card-content>
+                    <p>
+                        <b>Ingredients: </b> {{ p.ingredients }}
+                    </p>
+                </mat-card-content>
+
+                <mat-card-content>
+                    <p>
+                        <b>Image: </b> {{ p.img_url }}
+                    </p>
+                </mat-card-content>
+
+                <mat-card-content>
+                    <p>
+                        <b>Likes: </b> {{ p.likes }}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="button">
+                        <div class="edit">
+                            <!-- <button mat-button color="primary" >
+                                <a routerLink="/post/findposts" class="btn btn-link"></a>details
+                            </button>  -->
+                            <button > <a routerLink="/post/findposts/{{p.post_id}}" class="btn btn-link">Details</a></button>
+            
+                        </div>
+                    </div>
+            
+                </mat-card-actions>
+            
+            </mat-card>
+
+
+        </div>
+
+
+
+    <!-- <mat-card-content>
         <p>
             <b>Image: </b> {{ p.img_url }}
         </p>
@@ -41,8 +105,18 @@
             <b>Likes: </b> {{ p.likes }}
         </p>
     </mat-card-content>
+    <mat-card-actions>
+        <div class="button">
+            <div class="edit">
+               <button mat-button color="primary" >
+                    <a routerLink="/post/findposts" class="btn btn-link"></a>details
+                </button>  
+ <button > <a  routerLink="/post/findposts/{{p.post_id}}" class="btn btn-link">Details</a></button>
 
-</mat-card>
+    
+
+
+</mat-card>  --> 
 
 <!-- 
 <mat-card *ngFor="let p of post" class="review-card">

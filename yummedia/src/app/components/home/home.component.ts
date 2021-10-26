@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PostService } from 'src/app/services/post.service';
+// import { PostsComponent } from '../posts/posts.component';
 import { Post } from 'src/app/models/post';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+
+// @NgModule({
+//   declarations: [PostsComponent]
+// })
 
 @Component({
   selector: 'app-home',
@@ -17,6 +22,7 @@ export class HomeComponent implements OnInit {
   public post : Post[] | any;
   
   constructor(
+    // private postComponent: PostsComponent,
     private postService: PostService,
     private authenticationService: AuthenticationService
     
@@ -26,9 +32,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
+    // this.postComponent;
   }
 
-  // READ 
+  // // READ 
+  // public onSubmit(): void {
+  //   this.postComponent.onSubmit;
+  // }
+  // // this.postComponent
+
+
   public getPosts(): void {
     this.postService.getAllPosts()
     .subscribe(

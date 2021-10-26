@@ -22,8 +22,14 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+
 import {Component, Inject} from '@angular/core';
 import { MatDialogModule} from '@angular/material/dialog';
+
+import { AddPostComponent } from './components/add-post/add-post.component';
+import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
+
 // import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @NgModule({
@@ -38,7 +44,9 @@ import { MatDialogModule} from '@angular/material/dialog';
     HomeComponent,
     NavBarComponent,
     CommentsDetailComponent,
-    RegistrationComponent, 
+    RegistrationComponent,
+    AddPostComponent,
+    PostDetailComponent, 
     
   ],
   entryComponents:[
@@ -53,11 +61,11 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatSliderModule,
     MatDialogModule,
-    
-
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    MatFormFieldModule,
+ 
     
     ReactiveFormsModule
   ],
