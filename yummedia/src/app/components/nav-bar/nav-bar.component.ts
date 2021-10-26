@@ -16,7 +16,6 @@ export class NavBarComponent implements OnInit {
 
   public user: any;
   public userService: UserService;
-  isLoggedIn$: Observable<boolean>;
   
   constructor(
     private authenticationService: AuthenticationService,
@@ -29,7 +28,6 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.authenticationService.isLoggedIn;
   }
 
   public logOut() {
@@ -78,6 +76,13 @@ export class NavBarComponent implements OnInit {
     navbar?.appendChild(button);
     button.click();
     console.log("Opened");
+  }
+
+  public toHome() {
+    this.router.navigate(["/"])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
 }
