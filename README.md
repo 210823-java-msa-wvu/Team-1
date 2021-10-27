@@ -3,6 +3,13 @@
 ## Overview
 Cookbook (name pending) is a social media web application which will allow food lovers, cooks, and chefs from all backgrounds and skill levels to share recipes, post food pictures, and leave comments on other people's posts. 
 
+## TechStack
+- Java 8
+- springboot MVC framework
+- postgres 
+- dbeaver
+- Angular framework
+
 
 ## MVPs 
 ### Users 
