@@ -9,6 +9,7 @@ Cookbook (name pending) is a social media web application which will allow food 
 - postgres 
 - dbeaver
 - Angular framework
+- Postman
 
 
 ## MVPs 
