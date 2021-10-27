@@ -8,6 +8,9 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { from } from 'rxjs';
 
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+
 // @NgModule({
 //   declarations: [PostsComponent]
 // })
@@ -23,10 +26,13 @@ export class HomeComponent implements OnInit {
 
   // public review: Review[] | any;
   public post : Post[] | any;
+
+  public user : User[] | any;
   
   constructor(
     // private postComponent: PostsComponent,
     private postService: PostService,
+    private userService: UserService,
     private authenticationService: AuthenticationService
     
     ) { 
@@ -35,6 +41,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
+    this.getUsers();
     // this.postComponent;
   }
 
@@ -57,5 +64,38 @@ export class HomeComponent implements OnInit {
       
     );
   }
+
+  public getUsers(): void {
+    this.userService.getAllUsers()
+    .subscribe(
+      (response:User[]) => {
+        this.user = response
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error)
+      }
+    );
+  }
+
+
+  public getUsername(user_id: number): any {
+
+    let userList: User[] = this.user;
+
+    let username: string ; 
+
+    for(let i = 0; i<userList.length; i++) {
+
+      if (user_id == userList[i].id){
+        username = userList[i].username;
+        return username;
+      }
+
+    }
+
+    // return username;
+
+  }
+
 
 }
