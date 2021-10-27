@@ -1,7 +1,7 @@
-# Food Social Media (YumMedia/Cookbook (Plus))
+# YumMedia (Food Social Media)
 
 ## Overview
-Cookbook (name pending) is a social media web application which will allow food lovers, cooks, and chefs from all backgrounds and skill levels to share recipes, post food pictures, and leave comments on other people's posts. 
+Yum Media is a social media web application which will allow food lovers, cooks, and chefs from all backgrounds and skill levels to share recipes, post food pictures, and leave comments on other people's posts. 
 
 ## TechStack
 - Java 8
@@ -14,7 +14,7 @@ Cookbook (name pending) is a social media web application which will allow food 
 
 ## MVPs 
 ### Users 
-There are 3 different kinds of users who would be using Cookbook.
+For now, There is 1 kind of user who would be using YumMedia.
   - Standard Members
    
 
@@ -25,7 +25,6 @@ There are 3 different kinds of users who would be using Cookbook.
   - Both can leave a comment on other user's posts
   - Both can like a post
   - Both follow another member
-
 
 
 
