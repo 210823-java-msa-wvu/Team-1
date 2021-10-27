@@ -8,8 +8,7 @@ Cookbook (name pending) is a social media web application which will allow food 
 ### Users 
 There are 3 different kinds of users who would be using Cookbook.
   - Standard Members
-  - Professional Members
-  - Administrators 
+   
 
 ### Standard Members
   - Both will be able to create an account (if they do not previously have one). 
@@ -26,6 +25,11 @@ There are 3 different kinds of users who would be using Cookbook.
   - add a search bar
   - adding Reviews (meal type, breakfast, lunch, dinner, etc
   - - Professional Members
+  - Administrators 
+  - ### Users 
+There are 2 additional kinds of users who would be using Cookbook.
+ 
+  - Professional Members
   - Administrators 
 
 ### Only Professional Members
