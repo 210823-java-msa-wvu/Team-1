@@ -28,6 +28,7 @@ public class UserService {
     }
 
     public Users getUser(Integer user_id){
+        System.out.println("THIS USER " + usersRepo.findById(user_id).orElse(null));
         return usersRepo.findById(user_id).orElse(null);
     }
 

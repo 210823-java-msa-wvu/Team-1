@@ -11,9 +11,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 
+
 import java.util.Arrays;
 
 @SpringBootApplication
+
 @ComponentScan("com.team1") // alerts spring to look for components / stereotypes
 @EntityScan("com.team1.models")
 @EnableJpaRepositories("com.team1.repositories")

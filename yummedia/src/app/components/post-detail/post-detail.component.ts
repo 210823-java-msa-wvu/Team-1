@@ -76,6 +76,7 @@ export class PostDetailComponent implements OnInit {
           this.postJSON2.user_id = (this.post=post).user_id;
           this.postJSON2.description = (this.post=post).description;
           this.postJSON2.ingredients = (this.post=post).ingredients;
+          this.postJSON2.title = (this.post=post).title;
           this.postJSON2.img_url = (this.post=post).img_url;
           this.postJSON2.likes = (this.post=post).likes;
           this.postJSON2.flag = (this.post=post).flag;
