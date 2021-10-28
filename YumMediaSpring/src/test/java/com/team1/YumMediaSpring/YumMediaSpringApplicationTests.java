@@ -45,23 +45,4 @@ public class YumMediaSpringApplicationTests {
 
 	}
 
-
-
-//	@DataJpaTest
-//	@ContextConfiguration(classes = MyApplication.class)
-//	public class RulesTest {
-//		@Autowired
-//		private RuleRepository ruleRepository;
-//
-//		@Test
-//		public void testSaveOneRule() {
-//			if (ruleRepository == null) {
-//				System.err.println("HERE");
-//				assertTrue(true);
-//			} else {
-//				assertTrue(false);
-//			}
-//		}
-//	}
-
 }
