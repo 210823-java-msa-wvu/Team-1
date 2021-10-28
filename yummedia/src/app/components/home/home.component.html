@@ -37,7 +37,7 @@
             <div class="post-content-title">
                 <h1>Checkout the news feed</h1>
             </div>
-            <mat-card *ngFor="let p of post" class="post-card">
+            <mat-card *ngFor="let p of post"  class="post-card">
                 <!-- <mat-card-header>
                     <mat-card-title> <img [src]="img_url">  </mat-card-title>
                 </mat-card-header> -->
@@ -54,9 +54,9 @@
                     <b>Post ID: </b> {{ p.post_id }}
                 </mat-card-header> -->
 
-                <mat-card-content>
+                <mat-card-content  >
                     <p>
-                        <b>User ID: </b> {{ p.user_id }}
+                        <b>Username: </b> {{ getUsername(p.user_id) }} 
                     </p>
                 </mat-card-content>
 
