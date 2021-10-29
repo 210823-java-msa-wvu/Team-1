@@ -19,25 +19,21 @@ For now, There is 1 kind of user who would be using YumMedia.
    
 
 ### Standard Members
-  - Both will be able to create an account (if they do not previously have one). 
-  - Both can login
-  - Both can create a post (which will contain text and a picture if they desire)
-  - Both can leave a comment on other user's posts
-  - Both can like a post
-  - Both follow another member
+  - Will be able to create an account (if they do not previously have one). 
+  - Can login
+  - Can create a post (which will contain text and a picture if they desire)
+  - Can leave a comment on other user's posts
+  - Can like a post
 
 
 
 ## Stretch Goals
   - add a search bar
+  - members can follow other members
   - adding Reviews (meal type, breakfast, lunch, dinner, etc
-  - - Professional Members
-  - Administrators 
-  - ### Users 
-There are 2 additional kinds of users who would be using Cookbook.
- 
-  - Professional Members
-  - Administrators 
+  - creating 2 additional kinds of users who would be using Cookbook.
+    - creating Professional Members
+    - creating Administrators 
 
 ### Only Professional Members
   - Can leave a rating along with their comment (thus converting their comment into a review) 
